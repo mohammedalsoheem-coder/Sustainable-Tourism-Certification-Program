@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Tourism Certification Program | Ministry of Tourism</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ========================================
+           CSS VARIABLES — MT Brand System
+           ======================================== */
+        :root {
+            --mt-primary: #846edb;
+            --mt-primary-light: #a594e8;
+            --mt-primary-dark: #6b53c4;
+            --mt-secondary: #d7f285;
+            --mt-secondary-dark: #b8d95e;
+            --mt-teal: #2fba89;
+            --mt-teal-light: #82d9bf;
+            --mt-teal-dark: #1f9a6e;
+            --mt-amber: #ffb752;
+            --mt-maroon: #962640;
+            --mt-dark: #051f1f;
+            --mt-slate: #053333;
+            --mt-steel: #547070;
+            --mt-light: #b8c2c2;
+            --mt-mint: #e6ebeb;
+            --mt-white: #ffffff;
+            --radius: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --shadow-sm: 0 2px 8px rgba(5,31,31,0.06);
+            --shadow-md: 0 4px 20px rgba(5,31,31,0.1);
+            --shadow-lg: 0 8px 40px rgba(5,31,31,0.14);
+            --shadow-xl: 0 16px 60px rgba(5,31,31,0.18);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', 'FS Albert Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--mt-dark);
+            background: var(--mt-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Plus Jakarta Sans', 'FS Albert Pro', sans-serif;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(5, 31, 31, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(5, 31, 31, 0.98);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-brand-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--mt-teal), var(--mt-primary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-brand-icon i {
+            color: var(--mt-white);
+            font-size: 18px;
+        }
+
+        .nav-brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-brand-text span:first-child {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--mt-white);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-brand-text span:last-child {
+            font-size: 10px;
+            color: var(--mt-teal-light);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.75);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--mt-white);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .nav-cta {
+            background: var(--mt-teal) !important;
+            color: var(--mt-white) !important;
+            font-weight: 600 !important;
+            padding: 10px 24px !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--mt-teal-dark) !important;
+            transform: translateY(-1px);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--mt-white);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(160deg, var(--mt-dark) 0%, var(--mt-slate) 40%, #0a4040 70%, #0d4d3d 100%);
+            overflow: hidden;
+            padding-top: 72px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 800px 600px at 20% 50%, rgba(132,110,219,0.15), transparent),
+                radial-gradient(ellipse 600px 400px at 80% 30%, rgba(47,186,137,0.12), transparent),
+                radial-gradient(ellipse 400px 300px at 60% 80%, rgba(215,242,133,0.08), transparent);
+            pointer-events: none;
+        }
+
+        .hero-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float-particle linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-text {
+            max-width: 560px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(47,186,137,0.15);
+            border: 1px solid rgba(47,186,137,0.3);
+            color: var(--mt-secondary);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 8px 18px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+
+        .hero-badge i { font-size: 14px; color: var(--mt-teal-light); }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+            color: var(--mt-white);
+            margin-bottom: 24px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--mt-secondary), var(--mt-teal-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 17px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 480px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--mt-teal);
+            color: var(--mt-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--mt-teal-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(47,186,137,0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--mt-white);
+            border: 1.5px solid rgba(255,255,255,0.25);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--mt-teal-light);
+            color: var(--mt-teal-light);
+            background: rgba(47,186,137,0.08);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card-stack {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+        }
+
+        .hero-stat-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 16px;
+            transition: var(--transition);
+        }
+
+        .hero-stat-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(-4px);
+        }
+
+        .stat-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .stat-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .stat-icon.green { background: rgba(47,186,137,0.2); color: var(--mt-teal-light); }
+        .stat-icon.purple { background: rgba(132,110,219,0.2); color: var(--mt-primary-light); }
+        .stat-icon.lime { background: rgba(215,242,133,0.2); color: var(--mt-secondary); }
+
+        .stat-info h4 {
+            color: var(--mt-white);
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .stat-info p {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+        }
+
+        /* ========================================
+           SECTION STYLES
+           ======================================== */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--mt-primary);
+            margin-bottom: 16px;
+        }
+
+        .section-label i { font-size: 14px; }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            color: var(--mt-dark);
+            margin-bottom: 18px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--mt-steel);
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           PROBLEM STATEMENT
+           ======================================== */
+        .problem {
+            background: var(--mt-mint);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .problem-visual {
+            position: relative;
+        }
+
+        .problem-icon-box {
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 420px;
+            background: linear-gradient(135deg, var(--mt-slate), var(--mt-dark));
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-icon-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle 200px at 30% 40%, rgba(132,110,219,0.2), transparent),
+                radial-gradient(circle 150px at 70% 60%, rgba(47,186,137,0.15), transparent);
+        }
+
+        .problem-icon-box i {
+            font-size: 120px;
+            color: rgba(255,255,255,0.08);
+            position: relative;
+            z-index: 1;
+        }
+
+        .problem-float-card {
+            position: absolute;
+            background: var(--mt-white);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            animation: float-slow 6s ease-in-out infinite;
+        }
+
+        .problem-float-card:nth-child(2) {
+            top: 15%;
+            right: -30px;
+            animation-delay: -2s;
+        }
+
+        .problem-float-card:nth-child(3) {
+            bottom: 15%;
+            left: -20px;
+            animation-delay: -4s;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .problem-float-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .problem-float-card p {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--mt-dark);
+        }
+
+        .problem-float-card span {
+            font-size: 11px;
+            color: var(--mt-steel);
+        }
+
+        .problem-content h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .problem-content > p {
+            font-size: 16px;
+            color: var(--mt-steel);
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .problem-points {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .problem-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px 20px;
+            background: var(--mt-white);
+            border-radius: var(--radius);
+            border-left: 3px solid var(--mt-maroon);
+        }
+
+        .problem-point i {
+            color: var(--mt-maroon);
+            font-size: 18px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .problem-point p {
+            font-size: 14px;
+            color: var(--mt-dark);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           TECHNOLOGY PILLARS
+           ======================================== */
+        .tech-pillars {
+            background: var(--mt-white);
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .pillar-card {
+            background: var(--mt-white);
+            border: 1px solid var(--mt-mint);
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            transition: var(--transition);
+        }
+
+        .pillar-card:nth-child(1)::before { background: var(--mt-primary); }
+        .pillar-card:nth-child(2)::before { background: var(--mt-teal); }
+        .pillar-card:nth-child(3)::before { background: var(--mt-amber); }
+        .pillar-card:nth-child(4)::before { background: var(--mt-secondary-dark); }
+        .pillar-card:nth-child(5)::before { background: var(--mt-maroon); }
+
+        .pillar-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .pillar-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .pillar-card:nth-child(1) .pillar-icon { background: rgba(132,110,219,0.12); color: var(--mt-primary); }
+        .pillar-card:nth-child(2) .pillar-icon { background: rgba(47,186,137,0.12); color: var(--mt-teal); }
+        .pillar-card:nth-child(3) .pillar-icon { background: rgba(255,183,82,0.12); color: var(--mt-amber); }
+        .pillar-card:nth-child(4) .pillar-icon { background: rgba(184,217,94,0.12); color: var(--mt-secondary-dark); }
+        .pillar-card:nth-child(5) .pillar-icon { background: rgba(150,38,64,0.12); color: var(--mt-maroon); }
+
+        .pillar-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--mt-dark);
+        }
+
+        .pillar-card .pillar-subtitle {
+            font-size: 13px;
+            color: var(--mt-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 14px;
+        }
+
+        .pillar-card p.pillar-how {
+            font-size: 14px;
+            color: var(--mt-steel);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .pillar-value {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: rgba(47,186,137,0.06);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+        }
+
+        .pillar-value i {
+            color: var(--mt-teal);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .pillar-value p {
+            font-size: 13px;
+            color: var(--mt-dark);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           SOLUTION ARCHITECTURE
+           ======================================== */
+        .solution-arch {
+            background: var(--mt-slate);
+            color: var(--mt-white);
+        }
+
+        .solution-arch .section-header h2 { color: var(--mt-white); }
+        .solution-arch .section-header p { color: rgba(255,255,255,0.6); }
+        .solution-arch .section-label { color: var(--mt-secondary); }
+
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .arch-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .arch-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-4px);
+            border-color: rgba(47,186,137,0.3);
+        }
+
+        .arch-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            background: rgba(47,186,137,0.15);
+            color: var(--mt-teal-light);
+        }
+
+        .arch-card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--mt-white);
+        }
+
+        .arch-card p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           EXPECTED VALUE
+           ======================================== */
+        .expected-value {
+            background: var(--mt-white);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .value-card {
+            display: flex;
+            gap: 20px;
+            padding: 36px 32px;
+            border-radius: var(--radius-lg);
+            background: var(--mt-white);
+            border: 1px solid var(--mt-mint);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: transparent;
+        }
+
+        .value-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--mt-mint);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .value-card:hover .value-num { color: var(--mt-primary-light); }
+
+        .value-card h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+            color: var(--mt-dark);
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: var(--mt-steel);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           SUSTAINABILITY MODEL
+           ======================================== */
+        .sustainability-model {
+            background: linear-gradient(160deg, var(--mt-dark), var(--mt-slate));
+            color: var(--mt-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sustainability-model::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 600px 400px at 80% 20%, rgba(215,242,133,0.08), transparent),
+                radial-gradient(ellipse 500px 300px at 20% 80%, rgba(132,110,219,0.06), transparent);
+            pointer-events: none;
+        }
+
+        .sustainability-model .section-header h2 { color: var(--mt-white); }
+        .sustainability-model .section-header p { color: rgba(255,255,255,0.6); }
+        .sustainability-model .section-label { color: var(--mt-secondary); }
+
+        .model-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .model-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .model-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .model-card-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .model-card:nth-child(1) .model-card-icon { background: rgba(47,186,137,0.2); color: var(--mt-teal-light); }
+        .model-card:nth-child(2) .model-card-icon { background: rgba(132,110,219,0.2); color: var(--mt-primary-light); }
+        .model-card:nth-child(3) .model-card-icon { background: rgba(215,242,133,0.2); color: var(--mt-secondary); }
+
+        .model-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--mt-white);
+        }
+
+        .model-card p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           REGISTRATION FLOW
+           ======================================== */
+        .registration {
+            background: var(--mt-mint);
+        }
+
+        .reg-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .reg-timeline::before {
+            content: '';
+            position: absolute;
+            left: 32px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--mt-primary), var(--mt-teal), var(--mt-secondary-dark));
+            border-radius: 3px;
+        }
+
+        .reg-step {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .reg-step:last-child { margin-bottom: 0; }
+
+        .reg-step-num {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            color: var(--mt-white);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .reg-step:nth-child(1) .reg-step-num { background: var(--mt-primary); }
+        .reg-step:nth-child(2) .reg-step-num { background: var(--mt-teal); }
+        .reg-step:nth-child(3) .reg-step-num { background: var(--mt-amber); }
+        .reg-step:nth-child(4) .reg-step-num { background: var(--mt-secondary-dark); }
+        .reg-step:nth-child(5) .reg-step-num { background: var(--mt-primary-dark); }
+        .reg-step:nth-child(6) .reg-step-num { background: var(--mt-teal-dark); }
+        .reg-step:nth-child(7) .reg-step-num { background: var(--mt-maroon); }
+
+        .reg-step-content {
+            flex: 1;
+            background: var(--mt-white);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .reg-step-content:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .reg-step-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--mt-dark);
+        }
+
+        .reg-step-content p {
+            font-size: 14px;
+            color: var(--mt-steel);
+            line-height: 1.7;
+        }
+
+        .reg-step-content .reg-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-top: 12px;
+        }
+
+        .tag-ai { background: rgba(132,110,219,0.1); color: var(--mt-primary); }
+        .tag-ux { background: rgba(47,186,137,0.1); color: var(--mt-teal); }
+        .tag-mobile { background: rgba(255,183,82,0.1); color: var(--mt-amber); }
+        .tag-integration { background: rgba(184,217,94,0.1); color: var(--mt-secondary-dark); }
+
+        /* ========================================
+           VERIFICATION PROCESS
+           ======================================== */
+        .verification {
+            background: var(--mt-white);
+        }
+
+        .verify-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 64px;
+        }
+
+        .verify-feature {
+            padding: 28px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--mt-mint);
+            transition: var(--transition);
+        }
+
+        .verify-feature:hover {
+            box-shadow: var(--shadow-md);
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+
+        .verify-feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .verify-feature:nth-child(1) .verify-feature-icon { background: rgba(132,110,219,0.12); color: var(--mt-primary); }
+        .verify-feature:nth-child(2) .verify-feature-icon { background: rgba(47,186,137,0.12); color: var(--mt-teal); }
+        .verify-feature:nth-child(3) .verify-feature-icon { background: rgba(255,183,82,0.12); color: var(--mt-amber); }
+        .verify-feature:nth-child(4) .verify-feature-icon { background: rgba(215,242,133,0.12); color: var(--mt-secondary-dark); }
+        .verify-feature:nth-child(5) .verify-feature-icon { background: rgba(150,38,64,0.12); color: var(--mt-maroon); }
+
+        .verify-feature h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--mt-dark);
+        }
+
+        .verify-feature p {
+            font-size: 13px;
+            color: var(--mt-steel);
+            line-height: 1.7;
+        }
+
+        /* Verification Journey */
+        .journey-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .journey-title h3 {
+            font-size: 24px;
+            color: var(--mt-dark);
+            margin-bottom: 8px;
+        }
+
+        .journey-title p {
+            color: var(--mt-steel);
+            font-size: 15px;
+        }
+
+        .journey-steps {
+            display: flex;
+            gap: 0;
+            position: relative;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+
+        .journey-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            right: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--mt-primary), var(--mt-teal), var(--mt-secondary-dark), var(--mt-amber), var(--mt-teal));
+            z-index: 0;
+        }
+
+        .journey-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 0 8px;
+        }
+
+        .journey-step-dot {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 4px solid var(--mt-white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .journey-step:nth-child(1) .journey-step-dot { background: var(--mt-primary); color: var(--mt-white); }
+        .journey-step:nth-child(2) .journey-step-dot { background: var(--mt-teal); color: var(--mt-white); }
+        .journey-step:nth-child(3) .journey-step-dot { background: var(--mt-amber); color: var(--mt-white); }
+        .journey-step:nth-child(4) .journey-step-dot { background: var(--mt-secondary-dark); color: var(--mt-white); }
+        .journey-step:nth-child(5) .journey-step-dot { background: linear-gradient(135deg, var(--mt-teal), var(--mt-primary)); color: var(--mt-white); }
+
+        .journey-step h4 {
+            font-size: 14px;
+            color: var(--mt-dark);
+            margin-bottom: 8px;
+        }
+
+        .journey-step p {
+            font-size: 12px;
+            color: var(--mt-steel);
+            line-height: 1.6;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        /* ========================================
+           PITCH / CTA SECTION
+           ======================================== */
+        .pitch-section {
+            background: linear-gradient(160deg, var(--mt-primary-dark), var(--mt-primary), #5b3fc4);
+            color: var(--mt-white);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pitch-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 500px 400px at 30% 50%, rgba(47,186,137,0.15), transparent),
+                radial-gradient(ellipse 400px 300px at 70% 30%, rgba(215,242,133,0.1), transparent);
+            pointer-events: none;
+        }
+
+        .pitch-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .pitch-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .pitch-content p {
+            font-size: 17px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .pitch-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin: 48px 0;
+        }
+
+        .pitch-stat {
+            text-align: center;
+        }
+
+        .pitch-stat-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--mt-secondary);
+            display: block;
+        }
+
+        .pitch-stat-label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.65);
+            margin-top: 4px;
+        }
+
+        .pitch-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn-white {
+            background: var(--mt-white);
+            color: var(--mt-primary-dark);
+        }
+
+        .btn-white:hover {
+            background: var(--mt-secondary);
+            color: var(--mt-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--mt-white);
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--mt-white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background: var(--mt-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand h3 {
+            font-size: 20px;
+            color: var(--mt-white);
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--mt-teal);
+            color: var(--mt-white);
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            color: var(--mt-white);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 13px;
+            padding: 6px 0;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-col a:hover { color: var(--mt-teal-light); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        /* ========================================
+           SCROLL ANIMATIONS
+           ======================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 1024px) {
+            .hero-content { grid-template-columns: 1fr; gap: 40px; }
+            .hero-text { max-width: 100%; }
+            .hero-visual { display: none; }
+            .problem-grid { grid-template-columns: 1fr; }
+            .problem-visual { display: none; }
+            .value-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 64px 0; }
+            .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--mt-dark); flex-direction: column; padding: 20px; border-top: 1px solid rgba(255,255,255,0.06); }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: flex; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .arch-grid { grid-template-columns: 1fr 1fr; }
+            .model-cards { grid-template-columns: 1fr; }
+            .reg-timeline::before { left: 32px; }
+            .verify-features { grid-template-columns: 1fr; }
+            .journey-steps { flex-direction: column; align-items: center; }
+            .journey-steps::before { display: none; }
+            .pitch-stats { flex-direction: column; gap: 24px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions { flex-direction: column; }
+            .reg-step { flex-direction: column; gap: 16px; }
+            .reg-timeline::before { display: none; }
+            .arch-grid { grid-template-columns: 1fr; }
+            .pitch-actions { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="nav-brand">
+                <div class="nav-brand-icon">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div class="nav-brand-text">
+                    <span>Ministry of Tourism</span>
+                    <span>Sustainable Certification</span>
+                </div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#problem">Problem</a>
+                <a href="#technology">Technology</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#registration">Registration</a>
+                <a href="#verification">Verification</a>
+                <a href="#apply" class="nav-cta">Apply Now</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-grid-bg"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-certificate"></i>
+                    Official Certification Program
+                </div>
+                <h1>Sustainable Tourism <span class="highlight">Certification Program</span></h1>
+                <p class="hero-description">Setting clear standards and rewarding tourism businesses that prioritize environmental and social responsibility. Join the movement to transform the Kingdom's tourism landscape.</p>
+                <div class="hero-actions">
+                    <a href="#apply" class="btn btn-primary">
+                        <i class="fa-solid fa-rocket"></i>
+                        Start Certification
+                    </a>
+                    <a href="#technology" class="btn btn-outline">
+                        <i class="fa-solid fa-play"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-stack">
+                    <div class="hero-stat-card">
+                        <div class="stat-row">
+                            <div class="stat-icon green"><i class="fa-solid fa-shield-check"></i></div>
+                            <div class="stat-info">
+                                <h4>Blockchain Verified</h4>
+                                <p>Immutable certification records for transparency</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-stat-card">
+                        <div class="stat-row">
+                            <div class="stat-icon purple"><i class="fa-solid fa-brain"></i></div>
+                            <div class="stat-info">
+                                <h4>AI-Powered Assessment</h4>
+                                <p>Automated monitoring and compliance tracking</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-stat-card">
+                        <div class="stat-row">
+                            <div class="stat-icon lime"><i class="fa-solid fa-gamepad"></i></div>
+                            <div class="stat-info">
+                                <h4>Gamified Experience</h4>
+                                <p>Points, badges & leaderboards for engagement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-visual">
+                    <div class="problem-icon-box">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div class="problem-float-card">
+                            <div class="problem-float-icon" style="background:rgba(150,38,64,0.12);color:var(--mt-maroon);">
+                                <i class="fa-solid fa-ban"></i>
+                            </div>
+                            <div>
+                                <p>No Clear Standards</p>
+                                <span>Industry-wide gap</span>
+                            </div>
+                        </div>
+                        <div class="problem-float-card">
+                            <div class="problem-float-icon" style="background:rgba(255,183,82,0.12);color:var(--mt-amber);">
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </div>
+                            <div>
+                                <p>Greenwashing Risk</p>
+                                <span>Unverified claims</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="problem-content reveal">
+                    <div class="section-label">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Problem Statement
+                    </div>
+                    <h2>The Challenge We're Addressing</h2>
+                    <p>There is a lack of clear standards and incentives for tourism businesses to adopt sustainable practices, leading to inconsistent environmental performance and greenwashing risks across the industry.</p>
+                    <div class="problem-points">
+                        <div class="problem-point">
+                            <i class="fa-solid fa-xmark-circle"></i>
+                            <p>No unified sustainability criteria for tourism businesses to follow</p>
+                        </div>
+                        <div class="problem-point">
+                            <i class="fa-solid fa-xmark-circle"></i>
+                            <p>Lack of incentives to drive adoption of environmental best practices</p>
+                        </div>
+                        <div class="problem-point">
+                            <i class="fa-solid fa-xmark-circle"></i>
+                            <p>Difficulty for eco-conscious travelers to identify truly sustainable businesses</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Pillars -->
+    <section class="tech-pillars" id="technology">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">
+                    <i class="fa-solid fa-microchip"></i>
+                    Technology Pillars
+                </div>
+                <h2>Powered by Cutting-Edge Technology</h2>
+                <p>Our certification platform leverages five key technology pillars to deliver transparent, efficient, and engaging sustainability verification.</p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon"><i class="fa-solid fa-link"></i></div>
+                    <div class="pillar-subtitle">How it works</div>
+                    <h3>Blockchain for Transparency &amp; Trust</h3>
+                    <p class="pillar-how">Record certification details, audit trails, and carbon offset transactions on a blockchain, creating an immutable record that increases transparency and builds trust with consumers.</p>
+                    <div class="pillar-value">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <p>Provides verifiable proof of sustainability claims, combats greenwashing, and enhances the credibility of certified businesses.</p>
+                    </div>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon"><i class="fa-solid fa-robot"></i></div>
+                    <div class="pillar-subtitle">How it works</div>
+                    <h3>AI for Automated Assessment</h3>
+                    <p class="pillar-how">Use AI to analyze data from energy consumption reports, waste management data, and social media sentiment to automate assessment and monitor ongoing compliance.</p>
+                    <div class="pillar-value">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <p>Reduces manual effort, increases efficiency, and provides more objective assessments.</p>
+                    </div>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon"><i class="fa-solid fa-wifi"></i></div>
+                    <div class="pillar-subtitle">How it works</div>
+                    <h3>IoT for Real-Time Data</h3>
+                    <p class="pillar-how">Deploy IoT sensors at tourism facilities to monitor energy and water usage, waste generation, and other relevant environmental factors in real time.</p>
+                    <div class="pillar-value">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <p>Provides real-time data for accurate assessment, enabling businesses to identify areas for improvement and track progress.</p>
+                    </div>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="pillar-subtitle">How it works</div>
+                    <h3>Gamification for Engagement</h3>
+                    <p class="pillar-how">Incorporate points, badges, and leaderboards to motivate businesses to adopt sustainable practices and track their progress throughout the certification journey.</p>
+                    <div class="pillar-value">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <p>Makes the certification process more engaging and encourages continuous improvement.</p>
+                    </div>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon"><i class="fa-solid fa-compass"></i></div>
+                    <div class="pillar-subtitle">How it works</div>
+                    <h3>Personalized Recommendations</h3>
+                    <p class="pillar-how">Use AI to analyze certified businesses and traveler preferences to provide personalized recommendations to eco-conscious travelers.</p>
+                    <div class="pillar-value">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <p>Connects travelers with businesses that align with their values, increasing bookings for certified businesses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Architecture -->
+    <section class="solution-arch" id="architecture">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">
+                    <i class="fa-solid fa-sitemap"></i>
+                    Solution Architecture
+                </div>
+                <h2>End-to-End Platform Components</h2>
+                <p>A comprehensive ecosystem of interconnected modules designed to streamline certification, verification, and promotion.</p>
+            </div>
+            <div class="arch-grid">
+                <div class="arch-card reveal">
+                    <div class="arch-card-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3>Online Portal</h3>
+                    <p>A user-friendly portal for businesses to apply for certification, submit data, track progress, and access resources.</p>
+                </div>
+                <div class="arch-card reveal">
+                    <div class="arch-card-icon" style="background:rgba(132,110,219,0.15);color:var(--mt-primary-light);"><i class="fa-solid fa-database"></i></div>
+                    <h3>Data Management</h3>
+                    <p>A secure system for collecting, storing, and analyzing data related to sustainability criteria, inspections, and certifications.</p>
+                </div>
+                <div class="arch-card reveal">
+                    <div class="arch-card-icon" style="background:rgba(255,183,82,0.15);color:var(--mt-amber);"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <h3>Verification &amp; Audit</h3>
+                    <p>A system for independent auditors to verify data and conduct on-site inspections, ensuring certification integrity.</p>
+                </div>
+                <div class="arch-card reveal">
+                    <div class="arch-card-icon" style="background:rgba(215,242,133,0.15);color:var(--mt-secondary);"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3>Marketing Platform</h3>
+                    <p>Showcase certified businesses, promote sustainability efforts, and connect with environmentally conscious travelers.</p>
+                </div>
+                <div class="arch-card reveal">
+                    <div class="arch-card-icon" style="background:rgba(150,38,64,0.15);color:#e05a74;"><i class="fa-solid fa-plug"></i></div>
+                    <h3>API Integrations</h3>
+                    <p>Integrate with existing booking platforms, travel agencies, and other systems to increase visibility and reach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expected Value -->
+    <section class="expected-value" id="value">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Achieving Expected Value
+                </div>
+                <h2>Driving Lasting Impact</h2>
+                <p>Our program creates value across the entire tourism ecosystem &mdash; from setting industry benchmarks to driving sustainable economic growth.</p>
+            </div>
+            <div class="value-grid">
+                <div class="value-card reveal">
+                    <div class="value-num">01</div>
+                    <div>
+                        <h3>Raising Industry Standards</h3>
+                        <p>By setting clear sustainability criteria and rewarding businesses that meet them, the program incentivizes the adoption of best practices across the tourism industry.</p>
+                    </div>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-num">02</div>
+                    <div>
+                        <h3>Attracting Eco-Conscious Travelers</h3>
+                        <p>The program helps environmentally conscious travelers easily identify and support sustainable businesses, increasing demand for certified businesses.</p>
+                    </div>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-num">03</div>
+                    <div>
+                        <h3>Enhancing Destination Image</h3>
+                        <p>Promoting certified businesses and highlighting the country's commitment to sustainable tourism enhances the destination's image and attracts more responsible travelers.</p>
+                    </div>
+                </div>
+                <div class="value-card reveal">
+                    <div class="value-num">04</div>
+                    <div>
+                        <h3>Driving Economic Growth</h3>
+                        <p>By supporting sustainable businesses, the program contributes to long-term economic growth and the preservation of natural and cultural resources.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Model -->
+    <section class="sustainability-model" id="model">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">
+                    <i class="fa-solid fa-recycle"></i>
+                    Sustainability Model
+                </div>
+                <h2>A Self-Sustaining Ecosystem</h2>
+                <p>Our financial model ensures long-term viability through diversified revenue streams and strategic partnerships.</p>
+            </div>
+            <div class="model-cards">
+                <div class="model-card reveal">
+                    <div class="model-card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <h3>Certification Fees</h3>
+                    <p>Tiered pricing structure for businesses at different stages of their sustainability journey, ensuring accessibility while maintaining program quality.</p>
+                </div>
+                <div class="model-card reveal">
+                    <div class="model-card-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Sponsorships</h3>
+                    <p>Partnerships with environmentally conscious organizations that share our vision for sustainable tourism development and responsible travel.</p>
+                </div>
+                <div class="model-card reveal">
+                    <div class="model-card-icon"><i class="fa-solid fa-arrows-spin"></i></div>
+                    <h3>Platform Partnerships</h3>
+                    <p>Strategic integrations with marketing platforms, booking systems, and travel agencies to extend reach and generate mutual value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Flow -->
+    <section class="registration" id="registration">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Registration Flow
+                </div>
+                <h2>Innovative &amp; Easy Registration</h2>
+                <p>A thoughtfully designed registration experience that makes applying for certification simple, engaging, and accessible on any device.</p>
+            </div>
+            <div class="reg-timeline">
+                <div class="reg-step reveal">
+                    <div class="reg-step-num">1</div>
+                    <div class="reg-step-content">
+                        <h3>Gamified Onboarding</h3>
+                        <p>An engaging welcome experience with progress tracking, achievement milestones, and interactive tutorials that guide you through the certification requirements step by step.</p>
+                        <span class="reg-tag tag-ux"><i class="fa-solid fa-gamepad"></i> Engagement</span>
+                    </div>
+                </div>
+                <div class="reg-step reveal">
+                    <div class="reg-step-num">2</div>
+                    <div class="reg-step-content">
+                        <h3>AI-Powered Smart Forms</h3>
+                        <p>Intelligent forms that adapt to your responses, auto-fill relevant fields, and provide real-time guidance to ensure accurate and complete submissions.</p>
+                        <span class="reg-tag tag-ai"><i class="fa-solid fa-brain"></i> AI-Powered</span>
+                    </div>
+                </div>
+                <div class="reg-step reveal">
+                    <div class="reg-step-num">3</div>
+                    <div class="reg-step-content">
+                        <h3>Personalized Registration Paths</h3>
+                        <p>Customized registration flows tailored to your business type, size, and current sustainability practices, ensuring a relevant and efficient experience.</p>
+                        <span class="reg-tag tag-ai"><i class="fa-solid fa-route"></i> Personalized</span>
+                    </div>
+                </div>
+                <div class="reg-step reveal">
+                    <div class="reg-step-num">4</div>
+                    <div class="reg-step-content">
+                        <h3>Interactive Guides &amp; Visual Aids</h3>
+                        <p>Rich visual content, tooltips, embedded videos, and interactive walkthroughs that make complex sustainability criteria easy to understand.</p>
+                        <span class="reg-tag tag-ux"><i class="fa-solid fa-eye"></i> Visual</span>
+                    </div>
+                </div>
+                <div class="reg-step reveal">
+                    <div class="reg-step-num">5</div>
+                    <div class="reg-step-content">
+                        <h3>Mobile-First Approach</h3>
+                        <p>Fully responsive design optimized for mobile devices with optional offline access, allowing you to start the registration process anywhere and sync when connected.</p>
+                        <span class="reg-tag tag-mobile"><i class="fa-solid fa-mobile-screen"></i> Mobile-First</span>
+                    </div>
+                </div>
+                <div class="reg-step reveal">
+                    <div class="reg-step-num">6</div>
+                    <div class="reg-step-content">
+                        <h3>Integration with Existing Systems</h3>
+                        <p>Seamlessly connect with your existing business management tools, data sources, and reporting systems for a streamlined submission process.</p>
+                        <span class="reg-tag tag-integration"><i class="fa-solid fa-plug"></i> Integration</span>
+                    </div>
+                </div>
+                <div class="reg-step reveal">
+                    <div class="reg-step-num">7</div>
+                    <div class="reg-step-content">
+                        <h3>Human-Centered Design</h3>
+                        <p>Every element crafted with accessibility, clarity, and user feedback in mind — including multilingual support and live assistance when needed.</p>
+                        <span class="reg-tag tag-ux"><i class="fa-solid fa-heart"></i> User-First</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verification Process -->
+    <section class="verification" id="verification">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">
+                    <i class="fa-solid fa-badge-check"></i>
+                    Verification Process
+                </div>
+                <h2>A Journey, Not Just a Status</h2>
+                <p>Our verification process replaces generic statuses with an engaging, transparent, and personalized journey from application to certification.</p>
+            </div>
+
+            <div class="verify-features">
+                <div class="verify-feature reveal">
+                    <div class="verify-feature-icon"><i class="fa-solid fa-message-lines"></i></div>
+                    <h3>Descriptive &amp; Exciting Language</h3>
+                    <p>Replace generic statuses with descriptive, motivating messages that keep applicants engaged and informed throughout the process.</p>
+                </div>
+                <div class="verify-feature reveal">
+                    <div class="verify-feature-icon"><i class="fa-solid fa-star"></i></div>
+                    <h3>Gamified Verification Journey</h3>
+                    <p>Points, milestones, and achievement badges that transform the waiting period into an interactive and rewarding experience.</p>
+                </div>
+                <div class="verify-feature reveal">
+                    <div class="verify-feature-icon"><i class="fa-solid fa-bell"></i></div>
+                    <h3>Personalized Updates &amp; Tips</h3>
+                    <p>Tailored notifications with relevant resources and best practice recommendations based on your specific business profile.</p>
+                </div>
+                <div class="verify-feature reveal">
+                    <div class="verify-feature-icon"><i class="fa-solid fa-photo-film"></i></div>
+                    <h3>Visuals &amp; Multimedia</h3>
+                    <p>Engaging visual elements, animations, and multimedia content that make each stage of verification clear and exciting.</p>
+                </div>
+                <div class="verify-feature reveal">
+                    <div class="verify-feature-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Community Connection</h3>
+                    <p>Connect with other businesses on the same journey, share experiences, and build a supportive network of sustainable tourism champions.</p>
+                </div>
+            </div>
+
+            <!-- Example Verification Journey -->
+            <div class="journey-title reveal">
+                <h3>Example Verification Journey</h3>
+                <p>Follow a business through each stage of the certification process</p>
+            </div>
+            <div class="journey-steps reveal">
+                <div class="journey-step">
+                    <div class="journey-step-dot"><i class="fa-solid fa-rocket"></i></div>
+                    <h4>Submitted</h4>
+                    <p>"Your application has landed! We're excited to review your sustainability journey."</p>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-dot"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h4>Document Review</h4>
+                    <p>"Our experts are reviewing your documentation. Explore resources on waste reduction best practices."</p>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-dot"><i class="fa-solid fa-calendar"></i></div>
+                    <h4>Inspection Scheduled</h4>
+                    <p>"Your on-site inspection is scheduled! Here's what you can expect during the visit."</p>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-dot"><i class="fa-solid fa-earth-americas"></i></div>
+                    <h4>In Progress</h4>
+                    <p>"Our auditors are impressed with your commitment! We're finalizing our review."</p>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-dot"><i class="fa-solid fa-award"></i></div>
+                    <h4>Certified!</h4>
+                    <p>"Congratulations! You're officially a Level 1 Certified Sustainable Tourism Business!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pitch / CTA Section -->
+    <section class="pitch-section" id="apply">
+        <div class="container">
+            <div class="pitch-content reveal">
+                <h2>Join the Sustainable Tourism Revolution</h2>
+                <p>Promoting sustainable tourism practices and rewarding businesses that prioritize environmental and social responsibility. Together, we can raise industry standards, attract eco-conscious travelers, and enhance the Kingdom's image as a sustainable tourism destination.</p>
+                <p>Focus on the program's ability to raise industry standards, attract environmentally conscious travelers, and position the Kingdom as a world leader in sustainable tourism.</p>
+                <div class="pitch-stats">
+                    <div class="pitch-stat">
+                        <span class="pitch-stat-num" data-target="5">0</span>
+                        <span class="pitch-stat-label">Technology Pillars</span>
+                    </div>
+                    <div class="pitch-stat">
+                        <span class="pitch-stat-num" data-target="5">0</span>
+                        <span class="pitch-stat-label">Platform Modules</span>
+                    </div>
+                    <div class="pitch-stat">
+                        <span class="pitch-stat-num" data-target="7">0</span>
+                        <span class="pitch-stat-label">Registration Innovations</span>
+                    </div>
+                </div>
+                <div class="pitch-actions">
+                    <a href="#" class="btn btn-white">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Apply for Certification
+                    </a>
+                    <a href="#" class="btn btn-ghost">
+                        <i class="fa-solid fa-download"></i>
+                        Download Guidelines
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Sustainable Tourism Certification</h3>
+                    <p>An initiative by the Ministry of Tourism to set clear sustainability standards, reward responsible businesses, and build a greener future for tourism in the Kingdom.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Program</h4>
+                    <a href="#problem">Problem Statement</a>
+                    <a href="#technology">Technology Pillars</a>
+                    <a href="#architecture">Architecture</a>
+                    <a href="#value">Expected Value</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Process</h4>
+                    <a href="#registration">Registration</a>
+                    <a href="#verification">Verification</a>
+                    <a href="#model">Sustainability Model</a>
+                    <a href="#apply">Apply Now</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Contact Support</a>
+                    <a href="#">Partner Portal</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Ministry of Tourism. All rights reserved.</span>
+                <span>Sustainable Tourism Certification Program</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ========================================
+        // Navigation
+        // ========================================
+        const navbar = document.getElementById('navbar');
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile nav on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ========================================
+        // Scroll Reveal Animations
+        // ========================================
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ========================================
+        // Hero Particles
+        // ========================================
+        const particlesContainer = document.getElementById('heroParticles');
+        const colors = ['rgba(47,186,137,0.4)', 'rgba(132,110,219,0.3)', 'rgba(215,242,133,0.3)'];
+
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 6 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            particle.style.animationDelay = (Math.random() * 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // ========================================
+        // Counter Animation
+        // ========================================
+        const counters = document.querySelectorAll('.pitch-stat-num[data-target]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.dataset.target);
+                    let current = 0;
+                    const increment = target / 30;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            entry.target.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            entry.target.textContent = Math.ceil(current);
+                        }
+                    }, 50);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // ========================================
+        // Smooth scroll for anchor links
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
