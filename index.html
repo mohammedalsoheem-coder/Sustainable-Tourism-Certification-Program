@@ -70,7 +70,7 @@
         }
 
         /* ========================================
-           NAVIGATION
+           NAVIGATION — Matching mt.gov.sa
            ======================================== */
         .navbar {
             position: fixed;
@@ -78,7 +78,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(5, 31, 31, 0.95);
+            background: rgba(5, 51, 51, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -86,72 +86,46 @@
         }
 
         .navbar.scrolled {
-            background: rgba(5, 31, 31, 0.98);
+            background: rgba(5, 51, 51, 0.98);
             box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
 
         .nav-inner {
+            max-width: 100%;
+            padding: 0 28px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 72px;
+            height: 64px;
         }
 
+        /* Left side: Logo */
         .nav-brand {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 0;
         }
 
-        .nav-brand-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--mt-teal), var(--mt-primary));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .nav-brand-logo {
+            height: 44px;
+            width: auto;
         }
 
-        .nav-brand-icon i {
-            color: var(--mt-white);
-            font-size: 18px;
-        }
-
-        .nav-brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .nav-brand-text span:first-child {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            color: var(--mt-white);
-            letter-spacing: 0.02em;
-        }
-
-        .nav-brand-text span:last-child {
-            font-size: 10px;
-            color: var(--mt-teal-light);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 500;
-        }
-
+        /* Center: Navigation Links */
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
         }
 
         .nav-links a {
             color: rgba(255,255,255,0.75);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: var(--radius);
             transition: var(--transition);
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -163,12 +137,76 @@
             background: var(--mt-teal) !important;
             color: var(--mt-white) !important;
             font-weight: 600 !important;
-            padding: 10px 24px !important;
+            padding: 8px 20px !important;
+            border-radius: var(--radius) !important;
         }
 
         .nav-cta:hover {
             background: var(--mt-teal-dark) !important;
             transform: translateY(-1px);
+        }
+
+        /* Right side: Utility icons */
+        .nav-utilities {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-util-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .nav-util-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--mt-white);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .nav-lang-btn {
+            width: auto;
+            padding: 0 12px;
+            border-radius: var(--radius);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-util-divider {
+            width: 1px;
+            height: 24px;
+            background: rgba(255,255,255,0.12);
+            margin: 0 8px;
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            margin-left: 12px;
+        }
+
+        .nav-hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--mt-white);
+            border-radius: 2px;
+            transition: var(--transition);
         }
 
         .nav-toggle {
@@ -1311,9 +1349,11 @@
 
         @media (max-width: 768px) {
             section { padding: 64px 0; }
-            .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--mt-dark); flex-direction: column; padding: 20px; border-top: 1px solid rgba(255,255,255,0.06); }
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: rgba(5,51,51,0.98); flex-direction: column; padding: 20px; border-top: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(20px); }
             .nav-links.open { display: flex; }
-            .nav-toggle { display: flex; }
+            .nav-hamburger { display: flex; }
+            .nav-util-btn:not(.nav-lang-btn) { display: none; }
+            .nav-util-divider { display: none; }
             .pillars-grid { grid-template-columns: 1fr; }
             .arch-grid { grid-template-columns: 1fr 1fr; }
             .model-cards { grid-template-columns: 1fr; }
@@ -1337,18 +1377,15 @@
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation — Matching mt.gov.sa -->
     <nav class="navbar" id="navbar">
-        <div class="container nav-inner">
-            <a href="#" class="nav-brand">
-                <div class="nav-brand-icon">
-                    <i class="fa-solid fa-leaf"></i>
-                </div>
-                <div class="nav-brand-text">
-                    <span>Ministry of Tourism</span>
-                    <span>Sustainable Certification</span>
-                </div>
+        <div class="nav-inner">
+            <!-- Left: MT Logo -->
+            <a href="#" class="nav-brand" aria-label="Ministry of Tourism Home">
+                <img src="https://mt.gov.sa/assets/img/MT-logo.svg" alt="Ministry of Tourism Logo" class="nav-brand-logo">
             </a>
+
+            <!-- Center: Navigation Links -->
             <div class="nav-links" id="navLinks">
                 <a href="#problem">Problem</a>
                 <a href="#technology">Technology</a>
@@ -1357,9 +1394,18 @@
                 <a href="#verification">Verification</a>
                 <a href="#apply" class="nav-cta">Apply Now</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
-            </button>
+
+            <!-- Right: Utility Icons -->
+            <div class="nav-utilities">
+                <button class="nav-util-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="nav-util-btn nav-lang-btn" aria-label="Switch to Arabic">AR</button>
+                <button class="nav-util-btn" aria-label="Help"><i class="fa-solid fa-circle-question"></i></button>
+                <button class="nav-util-btn" aria-label="Login"><i class="fa-solid fa-user"></i></button>
+                <div class="nav-util-divider"></div>
+                <button class="nav-hamburger" id="navToggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -1892,9 +1938,11 @@
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-        });
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+            });
+        }
 
         // Close mobile nav on link click
         navLinks.querySelectorAll('a').forEach(link => {
