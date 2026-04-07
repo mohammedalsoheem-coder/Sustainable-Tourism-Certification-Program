@@ -1321,6 +1321,62 @@
         }
 
         /* ========================================
+           FLOATING CTA BUTTON
+           ======================================== */
+        .floating-cta {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--mt-teal);
+            color: var(--mt-white);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 16px 28px;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(47,186,137,0.4), 0 2px 8px rgba(0,0,0,0.15);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            pointer-events: none;
+        }
+
+        .floating-cta.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+
+        .floating-cta:hover {
+            background: var(--mt-teal-dark);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 40px rgba(47,186,137,0.5), 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .floating-cta i {
+            font-size: 16px;
+        }
+
+        .floating-cta .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--mt-secondary);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(215,242,133,0.5); }
+            50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(215,242,133,0); }
+        }
+
+        /* ========================================
            SCROLL ANIMATIONS
            ======================================== */
         .reveal {
@@ -1423,8 +1479,8 @@
                 <p class="hero-description">Setting clear standards and rewarding tourism businesses that prioritize environmental and social responsibility. Join the movement to transform the Kingdom's tourism landscape.</p>
                 <div class="hero-actions">
                     <a href="#apply" class="btn btn-primary">
-                        <i class="fa-solid fa-rocket"></i>
-                        Start Certification
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Apply for Certification
                     </a>
                     <a href="#technology" class="btn btn-outline">
                         <i class="fa-solid fa-play"></i>
@@ -1436,7 +1492,7 @@
                 <div class="hero-card-stack">
                     <div class="hero-stat-card">
                         <div class="stat-row">
-                            <div class="stat-icon green"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="stat-icon green"><i class="fa-solid fa-link"></i></div>
                             <div class="stat-info">
                                 <h4>Blockchain Verified</h4>
                                 <p>Immutable certification records for transparency</p>
@@ -1883,6 +1939,13 @@
         </div>
     </section>
 
+    <!-- Floating CTA Button -->
+    <a href="#apply" class="floating-cta" id="floatingCta">
+        <div class="pulse-dot"></div>
+        <i class="fa-solid fa-paper-plane"></i>
+        Apply for Certification
+    </a>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1934,8 +1997,14 @@
         const navToggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
 
+        const floatingCta = document.getElementById('floatingCta');
+
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
+            // Show floating CTA after scrolling past hero
+            if (floatingCta) {
+                floatingCta.classList.toggle('show', window.scrollY > 600);
+            }
         });
 
         if (navToggle) {
