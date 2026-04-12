@@ -2477,19 +2477,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="certLevel">Certification Level <span class="req">*</span></label>
-                            <div class="input-with-icon">
-                                <i class="fa-solid fa-award"></i>
-                                <select id="certLevel" required>
-                                    <option value="">-- Select level --</option>
-                                    <option value="level1">Level 1 — Bronze (Foundational)</option>
-                                    <option value="level2">Level 2 — Silver (Intermediate)</option>
-                                    <option value="level3">Level 3 — Gold (Advanced)</option>
-                                    <option value="level4">Level 4 — Platinum (Excellence)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="starRating">Property Classification <span class="req">*</span></label>
                             <div class="input-with-icon">
                                 <i class="fa-solid fa-star"></i>
@@ -2709,7 +2696,6 @@
                                 <th>Business</th>
                                 <th>License</th>
                                 <th>Classification</th>
-                                <th>Level</th>
                                 <th>City</th>
                                 <th>Email</th>
                                 <th>Surveys</th>
@@ -3012,7 +2998,7 @@
         function getFieldLabel(id) {
             const labels = {
                 licenseNumber: 'License Number', licenseCategory: 'License Category',
-                certLevel: 'Certification Level', starRating: 'Property Classification',
+                starRating: 'Property Classification',
                 firstName: 'First Name', lastName: 'Last Name',
                 email: 'Email', phone: 'Phone', nationalId: 'National ID / Iqama',
                 jobTitle: 'Job Title', businessName: 'Business Name', crNumber: 'CR Number',
@@ -3033,7 +3019,7 @@
 
         function buildReview() {
             const fields = [
-                'licenseNumber','licenseCategory','certLevel','starRating',
+                'licenseNumber','licenseCategory','starRating',
                 'firstName','lastName','email','phone','nationalId','jobTitle',
                 'businessName','crNumber','city','employees','website'
             ];
@@ -3071,7 +3057,6 @@
                 submittedAt: new Date().toISOString(),
                 licenseNumber: licVal === 'manual' ? document.getElementById('manualLicense').value : licVal,
                 licenseCategory: document.getElementById('licenseCategory').value,
-                certLevel: document.getElementById('certLevel').value,
                 starRating: document.getElementById('starRating').value,
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
@@ -3146,7 +3131,6 @@
                     '<td>' + (a.businessName || '—') + '</td>' +
                     '<td>' + (a.licenseNumber || '—') + '</td>' +
                     '<td>' + (a.starRating || '—') + '</td>' +
-                    '<td>' + (a.certLevel || '—') + '</td>' +
                     '<td>' + (a.city || '—') + '</td>' +
                     '<td>' + (a.email || '—') + '</td>' +
                     '<td>' + (a.surveyFiles ? '<i class="fa-solid fa-file-check" style="color:var(--mt-teal-light);"></i>' : '—') + '</td>' +
