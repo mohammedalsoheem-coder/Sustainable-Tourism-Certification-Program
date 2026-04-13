@@ -1902,7 +1902,51 @@
             .arch-grid { grid-template-columns: 1fr; }
             .pitch-actions { flex-direction: column; align-items: center; }
         }
+        /* ========================================
+           RTL SUPPORT — Arabic Layout
+           ======================================== */
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+        [dir="rtl"] .nav-links { direction: ltr; }
+        [dir="rtl"] .hero-content { direction: rtl; }
+        [dir="rtl"] .hero-text { text-align: right; }
+        [dir="rtl"] .hero-actions { justify-content: flex-start; }
+        [dir="rtl"] .problem-grid { direction: rtl; }
+        [dir="rtl"] .problem-point i { margin-right: 0; margin-left: 12px; }
+        [dir="rtl"] .section-label i { margin-right: 0; margin-left: 8px; }
+        [dir="rtl"] .pillar-value i { margin-right: 0; margin-left: 8px; }
+        [dir="rtl"] .value-card { flex-direction: row-reverse; text-align: right; }
+        [dir="rtl"] .value-num { margin-right: 0; margin-left: 20px; }
+        [dir="rtl"] .reg-step { flex-direction: row-reverse; }
+        [dir="rtl"] .reg-step-content { text-align: right; }
+        [dir="rtl"] .journey-step { text-align: right; }
+        [dir="rtl"] .input-with-icon i { left: auto; right: 14px; }
+        [dir="rtl"] .input-with-icon input,
+        [dir="rtl"] .input-with-icon select { padding-left: 14px; padding-right: 42px; }
+        [dir="rtl"] .form-actions { flex-direction: row-reverse; }
+        [dir="rtl"] .btn i.fa-arrow-right { margin-left: 0; margin-right: 8px; transform: scaleX(-1); }
+        [dir="rtl"] .btn i.fa-arrow-left { margin-right: 0; margin-left: 8px; transform: scaleX(-1); }
+        [dir="rtl"] .footer-grid { direction: rtl; text-align: right; }
+        [dir="rtl"] .footer-bottom { direction: rtl; }
+        [dir="rtl"] .floating-cta { right: auto; left: 32px; }
+        [dir="rtl"] .checkbox-label { flex-direction: row-reverse; text-align: right; }
+        [dir="rtl"] .review-item { text-align: right; }
+        [dir="rtl"] .admin-header { flex-direction: row-reverse; }
+        [dir="rtl"] .form-step-header { text-align: right; }
+        [dir="rtl"] .arch-card, [dir="rtl"] .model-card { text-align: right; }
+        [dir="rtl"] .pillar-card { text-align: right; }
+        [dir="rtl"] .verify-feature { text-align: right; }
+        [dir="rtl"] .section-header { text-align: center; }
+        [dir="rtl"] body {
+            font-family: 'Noto Sans Arabic', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5 {
+            font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -1916,18 +1960,18 @@
 
             <!-- Center: Navigation Links -->
             <div class="nav-links" id="navLinks">
-                <a href="#problem">Problem</a>
-                <a href="#technology">Technology</a>
-                <a href="#architecture">Architecture</a>
-                <a href="#registration">Registration</a>
-                <a href="#verification">Verification</a>
-                <a href="#apply" class="nav-cta">Apply Now</a>
+                <a href="#problem" data-i18n="nav_problem">Problem</a>
+                <a href="#technology" data-i18n="nav_tech">Technology</a>
+                <a href="#architecture" data-i18n="nav_arch">Architecture</a>
+                <a href="#registration" data-i18n="nav_reg">Registration</a>
+                <a href="#verification" data-i18n="nav_verify">Verification</a>
+                <a href="#apply" class="nav-cta" data-i18n="nav_apply">Apply Now</a>
             </div>
 
             <!-- Right: Utility Icons -->
             <div class="nav-utilities">
                 <button class="nav-util-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button class="nav-util-btn nav-lang-btn" aria-label="Switch to Arabic">AR</button>
+                <button class="nav-util-btn nav-lang-btn" aria-label="Switch to Arabic" id="langToggle" onclick="toggleLanguage()">AR</button>
                 <button class="nav-util-btn" aria-label="Help"><i class="fa-solid fa-circle-question"></i></button>
                 <button class="nav-util-btn" aria-label="Login"><i class="fa-solid fa-user"></i></button>
                 <div class="nav-util-divider"></div>
@@ -1946,18 +1990,18 @@
             <div class="hero-text">
                 <div class="hero-badge">
                     <i class="fa-solid fa-certificate"></i>
-                    Official Certification Program
+                    <span data-i18n="hero_badge">Official Certification Program</span>
                 </div>
-                <h1>Sustainable Tourism <span class="highlight">Certification Program</span></h1>
-                <p class="hero-description">Setting clear standards and rewarding tourism businesses that prioritize environmental and social responsibility. Join the movement to transform the Kingdom's tourism landscape.</p>
+                <h1 data-i18n="hero_title_html">Sustainable Tourism <span class="highlight">Certification Program</span></h1>
+                <p class="hero-description" data-i18n="hero_desc">Setting clear standards and rewarding tourism businesses that prioritize environmental and social responsibility. Join the movement to transform the Kingdom's tourism landscape.</p>
                 <div class="hero-actions">
                     <a href="#apply" class="btn btn-primary">
                         <i class="fa-solid fa-paper-plane"></i>
-                        Apply for Certification
+                        <span data-i18n="hero_apply">Apply for Certification</span>
                     </a>
                     <a href="#technology" class="btn btn-outline">
                         <i class="fa-solid fa-play"></i>
-                        Learn More
+                        <span data-i18n="hero_learn">Learn More</span>
                     </a>
                 </div>
             </div>
@@ -1967,8 +2011,8 @@
                         <div class="stat-row">
                             <div class="stat-icon purple"><i class="fa-solid fa-brain"></i></div>
                             <div class="stat-info">
-                                <h4>AI-Powered Assessment</h4>
-                                <p>Automated monitoring and compliance tracking</p>
+                                <h4 data-i18n="hero_ai_title">AI-Powered Assessment</h4>
+                                <p data-i18n="hero_ai_desc">Automated monitoring and compliance tracking</p>
                             </div>
                         </div>
                     </div>
@@ -1976,8 +2020,8 @@
                         <div class="stat-row">
                             <div class="stat-icon lime"><i class="fa-solid fa-gamepad"></i></div>
                             <div class="stat-info">
-                                <h4>Gamified Experience</h4>
-                                <p>Points, badges & leaderboards for engagement</p>
+                                <h4 data-i18n="hero_game_title">Gamified Experience</h4>
+                                <p data-i18n="hero_game_desc">Points, badges & leaderboards for engagement</p>
                             </div>
                         </div>
                     </div>
@@ -1998,8 +2042,8 @@
                                 <i class="fa-solid fa-ban"></i>
                             </div>
                             <div>
-                                <p>No Clear Standards</p>
-                                <span>Industry-wide gap</span>
+                                <p data-i18n="prob_float1">No Clear Standards</p>
+                                <span data-i18n="prob_float1_sub">Industry-wide gap</span>
                             </div>
                         </div>
                         <div class="problem-float-card">
@@ -2007,8 +2051,8 @@
                                 <i class="fa-solid fa-eye-slash"></i>
                             </div>
                             <div>
-                                <p>Greenwashing Risk</p>
-                                <span>Unverified claims</span>
+                                <p data-i18n="prob_float2">Greenwashing Risk</p>
+                                <span data-i18n="prob_float2_sub">Unverified claims</span>
                             </div>
                         </div>
                     </div>
@@ -2016,22 +2060,22 @@
                 <div class="problem-content reveal">
                     <div class="section-label">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        Problem Statement
+                        <span data-i18n="prob_label">Problem Statement</span>
                     </div>
-                    <h2>The Challenge We're Addressing</h2>
-                    <p>There is a lack of clear standards and incentives for tourism businesses to adopt sustainable practices, leading to inconsistent environmental performance and greenwashing risks across the industry.</p>
+                    <h2 data-i18n="prob_title">The Challenge We're Addressing</h2>
+                    <p data-i18n="prob_desc">There is a lack of clear standards and incentives for tourism businesses to adopt sustainable practices, leading to inconsistent environmental performance and greenwashing risks across the industry.</p>
                     <div class="problem-points">
                         <div class="problem-point">
                             <i class="fa-solid fa-circle-xmark"></i>
-                            <p>No unified sustainability criteria for tourism businesses to follow</p>
+                            <p data-i18n="prob_p1">No unified sustainability criteria for tourism businesses to follow</p>
                         </div>
                         <div class="problem-point">
                             <i class="fa-solid fa-circle-xmark"></i>
-                            <p>Lack of incentives to drive adoption of environmental best practices</p>
+                            <p data-i18n="prob_p2">Lack of incentives to drive adoption of environmental best practices</p>
                         </div>
                         <div class="problem-point">
                             <i class="fa-solid fa-circle-xmark"></i>
-                            <p>Difficulty for eco-conscious travelers to identify truly sustainable businesses</p>
+                            <p data-i18n="prob_p3">Difficulty for eco-conscious travelers to identify truly sustainable businesses</p>
                         </div>
                     </div>
                 </div>
@@ -2045,50 +2089,50 @@
             <div class="section-header reveal">
                 <div class="section-label">
                     <i class="fa-solid fa-microchip"></i>
-                    Technology Pillars
+                    <span data-i18n="tech_label">Technology Pillars</span>
                 </div>
-                <h2>Powered by Cutting-Edge Technology</h2>
-                <p>Our certification platform leverages key technology pillars to deliver transparent, efficient, and engaging sustainability verification.</p>
+                <h2 data-i18n="tech_title">Powered by Cutting-Edge Technology</h2>
+                <p data-i18n="tech_desc">Our certification platform leverages key technology pillars to deliver transparent, efficient, and engaging sustainability verification.</p>
             </div>
             <div class="pillars-grid">
                 <div class="pillar-card reveal">
                     <div class="pillar-icon"><i class="fa-solid fa-robot"></i></div>
-                    <div class="pillar-subtitle">How it works</div>
-                    <h3>AI for Automated Assessment</h3>
-                    <p class="pillar-how">Use AI to analyze data from energy consumption reports, waste management data, and social media sentiment to automate assessment and monitor ongoing compliance.</p>
+                    <div class="pillar-subtitle" data-i18n="tech_how">How it works</div>
+                    <h3 data-i18n="tech1_title">AI for Automated Assessment</h3>
+                    <p class="pillar-how" data-i18n="tech1_desc">Use AI to analyze data from energy consumption reports, waste management data, and social media sentiment to automate assessment and monitor ongoing compliance.</p>
                     <div class="pillar-value">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p>Reduces manual effort, increases efficiency, and provides more objective assessments.</p>
+                        <p data-i18n="tech1_val">Reduces manual effort, increases efficiency, and provides more objective assessments.</p>
                     </div>
                 </div>
                 <div class="pillar-card reveal">
                     <div class="pillar-icon"><i class="fa-solid fa-wifi"></i></div>
-                    <div class="pillar-subtitle">How it works</div>
-                    <h3>IoT for Real-Time Data</h3>
-                    <p class="pillar-how">Deploy IoT sensors at tourism facilities to monitor energy and water usage, waste generation, and other relevant environmental factors in real time.</p>
+                    <div class="pillar-subtitle" data-i18n="tech_how">How it works</div>
+                    <h3 data-i18n="tech2_title">IoT for Real-Time Data</h3>
+                    <p class="pillar-how" data-i18n="tech2_desc">Deploy IoT sensors at tourism facilities to monitor energy and water usage, waste generation, and other relevant environmental factors in real time.</p>
                     <div class="pillar-value">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p>Provides real-time data for accurate assessment, enabling businesses to identify areas for improvement and track progress.</p>
+                        <p data-i18n="tech2_val">Provides real-time data for accurate assessment, enabling businesses to identify areas for improvement and track progress.</p>
                     </div>
                 </div>
                 <div class="pillar-card reveal">
                     <div class="pillar-icon"><i class="fa-solid fa-trophy"></i></div>
-                    <div class="pillar-subtitle">How it works</div>
-                    <h3>Gamification for Engagement</h3>
-                    <p class="pillar-how">Incorporate points, badges, and leaderboards to motivate businesses to adopt sustainable practices and track their progress throughout the certification journey.</p>
+                    <div class="pillar-subtitle" data-i18n="tech_how">How it works</div>
+                    <h3 data-i18n="tech3_title">Gamification for Engagement</h3>
+                    <p class="pillar-how" data-i18n="tech3_desc">Incorporate points, badges, and leaderboards to motivate businesses to adopt sustainable practices and track their progress throughout the certification journey.</p>
                     <div class="pillar-value">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p>Makes the certification process more engaging and encourages continuous improvement.</p>
+                        <p data-i18n="tech3_val">Makes the certification process more engaging and encourages continuous improvement.</p>
                     </div>
                 </div>
                 <div class="pillar-card reveal">
                     <div class="pillar-icon"><i class="fa-solid fa-compass"></i></div>
-                    <div class="pillar-subtitle">How it works</div>
-                    <h3>Personalized Recommendations</h3>
-                    <p class="pillar-how">Use AI to analyze certified businesses and traveler preferences to provide personalized recommendations to eco-conscious travelers.</p>
+                    <div class="pillar-subtitle" data-i18n="tech_how">How it works</div>
+                    <h3 data-i18n="tech4_title">Personalized Recommendations</h3>
+                    <p class="pillar-how" data-i18n="tech4_desc">Use AI to analyze certified businesses and traveler preferences to provide personalized recommendations to eco-conscious travelers.</p>
                     <div class="pillar-value">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p>Connects travelers with businesses that align with their values, increasing bookings for certified businesses.</p>
+                        <p data-i18n="tech4_val">Connects travelers with businesses that align with their values, increasing bookings for certified businesses.</p>
                     </div>
                 </div>
             </div>
@@ -2101,36 +2145,36 @@
             <div class="section-header reveal">
                 <div class="section-label">
                     <i class="fa-solid fa-sitemap"></i>
-                    Solution Architecture
+                    <span data-i18n="arch_label">Solution Architecture</span>
                 </div>
-                <h2>End-to-End Platform Components</h2>
-                <p>A comprehensive ecosystem of interconnected modules designed to streamline certification, verification, and promotion.</p>
+                <h2 data-i18n="arch_title">End-to-End Platform Components</h2>
+                <p data-i18n="arch_desc">A comprehensive ecosystem of interconnected modules designed to streamline certification, verification, and promotion.</p>
             </div>
             <div class="arch-grid">
                 <div class="arch-card reveal">
                     <div class="arch-card-icon"><i class="fa-solid fa-globe"></i></div>
-                    <h3>Online Portal</h3>
-                    <p>A user-friendly portal for businesses to apply for certification, submit data, track progress, and access resources.</p>
+                    <h3 data-i18n="arch1_title">Online Portal</h3>
+                    <p data-i18n="arch1_desc">A user-friendly portal for businesses to apply for certification, submit data, track progress, and access resources.</p>
                 </div>
                 <div class="arch-card reveal">
                     <div class="arch-card-icon" style="background:rgba(132,110,219,0.15);color:var(--mt-primary-light);"><i class="fa-solid fa-database"></i></div>
-                    <h3>Data Management</h3>
-                    <p>A secure system for collecting, storing, and analyzing data related to sustainability criteria, inspections, and certifications.</p>
+                    <h3 data-i18n="arch2_title">Data Management</h3>
+                    <p data-i18n="arch2_desc">A secure system for collecting, storing, and analyzing data related to sustainability criteria, inspections, and certifications.</p>
                 </div>
                 <div class="arch-card reveal">
                     <div class="arch-card-icon" style="background:rgba(255,183,82,0.15);color:var(--mt-amber);"><i class="fa-solid fa-clipboard-check"></i></div>
-                    <h3>Verification &amp; Audit</h3>
-                    <p>A system for independent auditors to verify data and conduct on-site inspections, ensuring certification integrity.</p>
+                    <h3 data-i18n="arch3_title">Verification &amp; Audit</h3>
+                    <p data-i18n="arch3_desc">A system for independent auditors to verify data and conduct on-site inspections, ensuring certification integrity.</p>
                 </div>
                 <div class="arch-card reveal">
                     <div class="arch-card-icon" style="background:rgba(215,242,133,0.15);color:var(--mt-secondary);"><i class="fa-solid fa-bullhorn"></i></div>
-                    <h3>Marketing Platform</h3>
-                    <p>Showcase certified businesses, promote sustainability efforts, and connect with environmentally conscious travelers.</p>
+                    <h3 data-i18n="arch4_title">Marketing Platform</h3>
+                    <p data-i18n="arch4_desc">Showcase certified businesses, promote sustainability efforts, and connect with environmentally conscious travelers.</p>
                 </div>
                 <div class="arch-card reveal">
                     <div class="arch-card-icon" style="background:rgba(150,38,64,0.15);color:#e05a74;"><i class="fa-solid fa-plug"></i></div>
-                    <h3>API Integrations</h3>
-                    <p>Integrate with existing booking platforms, travel agencies, and other systems to increase visibility and reach.</p>
+                    <h3 data-i18n="arch5_title">API Integrations</h3>
+                    <p data-i18n="arch5_desc">Integrate with existing booking platforms, travel agencies, and other systems to increase visibility and reach.</p>
                 </div>
             </div>
         </div>
@@ -2142,38 +2186,38 @@
             <div class="section-header reveal">
                 <div class="section-label">
                     <i class="fa-solid fa-chart-line"></i>
-                    Achieving Expected Value
+                    <span data-i18n="val_label">Achieving Expected Value</span>
                 </div>
-                <h2>Driving Lasting Impact</h2>
-                <p>Our program creates value across the entire tourism ecosystem &mdash; from setting industry benchmarks to driving sustainable economic growth.</p>
+                <h2 data-i18n="val_title">Driving Lasting Impact</h2>
+                <p data-i18n="val_desc">Our program creates value across the entire tourism ecosystem &mdash; from setting industry benchmarks to driving sustainable economic growth.</p>
             </div>
             <div class="value-grid">
                 <div class="value-card reveal">
                     <div class="value-num">01</div>
                     <div>
-                        <h3>Raising Industry Standards</h3>
-                        <p>By setting clear sustainability criteria and rewarding businesses that meet them, the program incentivizes the adoption of best practices across the tourism industry.</p>
+                        <h3 data-i18n="val1_title">Raising Industry Standards</h3>
+                        <p data-i18n="val1_desc">By setting clear sustainability criteria and rewarding businesses that meet them, the program incentivizes the adoption of best practices across the tourism industry.</p>
                     </div>
                 </div>
                 <div class="value-card reveal">
                     <div class="value-num">02</div>
                     <div>
-                        <h3>Attracting Eco-Conscious Travelers</h3>
-                        <p>The program helps environmentally conscious travelers easily identify and support sustainable businesses, increasing demand for certified businesses.</p>
+                        <h3 data-i18n="val2_title">Attracting Eco-Conscious Travelers</h3>
+                        <p data-i18n="val2_desc">The program helps environmentally conscious travelers easily identify and support sustainable businesses, increasing demand for certified businesses.</p>
                     </div>
                 </div>
                 <div class="value-card reveal">
                     <div class="value-num">03</div>
                     <div>
-                        <h3>Enhancing Destination Image</h3>
-                        <p>Promoting certified businesses and highlighting the country's commitment to sustainable tourism enhances the destination's image and attracts more responsible travelers.</p>
+                        <h3 data-i18n="val3_title">Enhancing Destination Image</h3>
+                        <p data-i18n="val3_desc">Promoting certified businesses and highlighting the country's commitment to sustainable tourism enhances the destination's image and attracts more responsible travelers.</p>
                     </div>
                 </div>
                 <div class="value-card reveal">
                     <div class="value-num">04</div>
                     <div>
-                        <h3>Driving Economic Growth</h3>
-                        <p>By supporting sustainable businesses, the program contributes to long-term economic growth and the preservation of natural and cultural resources.</p>
+                        <h3 data-i18n="val4_title">Driving Economic Growth</h3>
+                        <p data-i18n="val4_desc">By supporting sustainable businesses, the program contributes to long-term economic growth and the preservation of natural and cultural resources.</p>
                     </div>
                 </div>
             </div>
@@ -2186,26 +2230,26 @@
             <div class="section-header reveal">
                 <div class="section-label">
                     <i class="fa-solid fa-recycle"></i>
-                    Sustainability Model
+                    <span data-i18n="model_label">Sustainability Model</span>
                 </div>
-                <h2>A Self-Sustaining Ecosystem</h2>
-                <p>Our financial model ensures long-term viability through diversified revenue streams and strategic partnerships.</p>
+                <h2 data-i18n="model_title">A Self-Sustaining Ecosystem</h2>
+                <p data-i18n="model_desc">Our financial model ensures long-term viability through diversified revenue streams and strategic partnerships.</p>
             </div>
             <div class="model-cards">
                 <div class="model-card reveal">
                     <div class="model-card-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                    <h3>Certification Fees</h3>
-                    <p>Tiered pricing structure for businesses at different stages of their sustainability journey, ensuring accessibility while maintaining program quality.</p>
+                    <h3 data-i18n="model1_title">Certification Fees</h3>
+                    <p data-i18n="model1_desc">Tiered pricing structure for businesses at different stages of their sustainability journey, ensuring accessibility while maintaining program quality.</p>
                 </div>
                 <div class="model-card reveal">
                     <div class="model-card-icon"><i class="fa-solid fa-handshake"></i></div>
-                    <h3>Sponsorships</h3>
-                    <p>Partnerships with environmentally conscious organizations that share our vision for sustainable tourism development and responsible travel.</p>
+                    <h3 data-i18n="model2_title">Sponsorships</h3>
+                    <p data-i18n="model2_desc">Partnerships with environmentally conscious organizations that share our vision for sustainable tourism development and responsible travel.</p>
                 </div>
                 <div class="model-card reveal">
                     <div class="model-card-icon"><i class="fa-solid fa-arrows-spin"></i></div>
-                    <h3>Platform Partnerships</h3>
-                    <p>Strategic integrations with marketing platforms, booking systems, and travel agencies to extend reach and generate mutual value.</p>
+                    <h3 data-i18n="model3_title">Platform Partnerships</h3>
+                    <p data-i18n="model3_desc">Strategic integrations with marketing platforms, booking systems, and travel agencies to extend reach and generate mutual value.</p>
                 </div>
             </div>
         </div>
@@ -2217,66 +2261,66 @@
             <div class="section-header reveal">
                 <div class="section-label">
                     <i class="fa-solid fa-pen-to-square"></i>
-                    Registration Flow
+                    <span data-i18n="reg_label">Registration Flow</span>
                 </div>
-                <h2>Innovative &amp; Easy Registration</h2>
-                <p>A thoughtfully designed registration experience that makes applying for certification simple, engaging, and accessible on any device.</p>
+                <h2 data-i18n="reg_title">Innovative &amp; Easy Registration</h2>
+                <p data-i18n="reg_desc">A thoughtfully designed registration experience that makes applying for certification simple, engaging, and accessible on any device.</p>
             </div>
             <div class="reg-timeline">
                 <div class="reg-step reveal">
                     <div class="reg-step-num">1</div>
                     <div class="reg-step-content">
-                        <h3>Gamified Onboarding</h3>
-                        <p>An engaging welcome experience with progress tracking, achievement milestones, and interactive tutorials that guide you through the certification requirements step by step.</p>
-                        <span class="reg-tag tag-ux"><i class="fa-solid fa-gamepad"></i> Engagement</span>
+                        <h3 data-i18n="reg1_title">Gamified Onboarding</h3>
+                        <p data-i18n="reg1_desc">An engaging welcome experience with progress tracking, achievement milestones, and interactive tutorials that guide you through the certification requirements step by step.</p>
+                        <span class="reg-tag tag-ux"><i class="fa-solid fa-gamepad"></i> <span data-i18n="reg1_tag">Engagement</span></span>
                     </div>
                 </div>
                 <div class="reg-step reveal">
                     <div class="reg-step-num">2</div>
                     <div class="reg-step-content">
-                        <h3>AI-Powered Smart Forms</h3>
-                        <p>Intelligent forms that adapt to your responses, auto-fill relevant fields, and provide real-time guidance to ensure accurate and complete submissions.</p>
-                        <span class="reg-tag tag-ai"><i class="fa-solid fa-brain"></i> AI-Powered</span>
+                        <h3 data-i18n="reg2_title">AI-Powered Smart Forms</h3>
+                        <p data-i18n="reg2_desc">Intelligent forms that adapt to your responses, auto-fill relevant fields, and provide real-time guidance to ensure accurate and complete submissions.</p>
+                        <span class="reg-tag tag-ai"><i class="fa-solid fa-brain"></i> <span data-i18n="reg2_tag">AI-Powered</span></span>
                     </div>
                 </div>
                 <div class="reg-step reveal">
                     <div class="reg-step-num">3</div>
                     <div class="reg-step-content">
-                        <h3>Personalized Registration Paths</h3>
-                        <p>Customized registration flows tailored to your business type, size, and current sustainability practices, ensuring a relevant and efficient experience.</p>
-                        <span class="reg-tag tag-ai"><i class="fa-solid fa-route"></i> Personalized</span>
+                        <h3 data-i18n="reg3_title">Personalized Registration Paths</h3>
+                        <p data-i18n="reg3_desc">Customized registration flows tailored to your business type, size, and current sustainability practices, ensuring a relevant and efficient experience.</p>
+                        <span class="reg-tag tag-ai"><i class="fa-solid fa-route"></i> <span data-i18n="reg3_tag">Personalized</span></span>
                     </div>
                 </div>
                 <div class="reg-step reveal">
                     <div class="reg-step-num">4</div>
                     <div class="reg-step-content">
-                        <h3>Interactive Guides &amp; Visual Aids</h3>
-                        <p>Rich visual content, tooltips, embedded videos, and interactive walkthroughs that make complex sustainability criteria easy to understand.</p>
-                        <span class="reg-tag tag-ux"><i class="fa-solid fa-eye"></i> Visual</span>
+                        <h3 data-i18n="reg4_title">Interactive Guides &amp; Visual Aids</h3>
+                        <p data-i18n="reg4_desc">Rich visual content, tooltips, embedded videos, and interactive walkthroughs that make complex sustainability criteria easy to understand.</p>
+                        <span class="reg-tag tag-ux"><i class="fa-solid fa-eye"></i> <span data-i18n="reg4_tag">Visual</span></span>
                     </div>
                 </div>
                 <div class="reg-step reveal">
                     <div class="reg-step-num">5</div>
                     <div class="reg-step-content">
-                        <h3>Mobile-First Approach</h3>
-                        <p>Fully responsive design optimized for mobile devices with optional offline access, allowing you to start the registration process anywhere and sync when connected.</p>
-                        <span class="reg-tag tag-mobile"><i class="fa-solid fa-mobile-screen-button"></i> Mobile-First</span>
+                        <h3 data-i18n="reg5_title">Mobile-First Approach</h3>
+                        <p data-i18n="reg5_desc">Fully responsive design optimized for mobile devices with optional offline access, allowing you to start the registration process anywhere and sync when connected.</p>
+                        <span class="reg-tag tag-mobile"><i class="fa-solid fa-mobile-screen-button"></i> <span data-i18n="reg5_tag">Mobile-First</span></span>
                     </div>
                 </div>
                 <div class="reg-step reveal">
                     <div class="reg-step-num">6</div>
                     <div class="reg-step-content">
-                        <h3>Integration with Existing Systems</h3>
-                        <p>Seamlessly connect with your existing business management tools, data sources, and reporting systems for a streamlined submission process.</p>
-                        <span class="reg-tag tag-integration"><i class="fa-solid fa-plug"></i> Integration</span>
+                        <h3 data-i18n="reg6_title">Integration with Existing Systems</h3>
+                        <p data-i18n="reg6_desc">Seamlessly connect with your existing business management tools, data sources, and reporting systems for a streamlined submission process.</p>
+                        <span class="reg-tag tag-integration"><i class="fa-solid fa-plug"></i> <span data-i18n="reg6_tag">Integration</span></span>
                     </div>
                 </div>
                 <div class="reg-step reveal">
                     <div class="reg-step-num">7</div>
                     <div class="reg-step-content">
-                        <h3>Human-Centered Design</h3>
-                        <p>Every element crafted with accessibility, clarity, and user feedback in mind — including multilingual support and live assistance when needed.</p>
-                        <span class="reg-tag tag-ux"><i class="fa-solid fa-heart"></i> User-First</span>
+                        <h3 data-i18n="reg7_title">Human-Centered Design</h3>
+                        <p data-i18n="reg7_desc">Every element crafted with accessibility, clarity, and user feedback in mind — including multilingual support and live assistance when needed.</p>
+                        <span class="reg-tag tag-ux"><i class="fa-solid fa-heart"></i> <span data-i18n="reg7_tag">User-First</span></span>
                     </div>
                 </div>
             </div>
@@ -2289,75 +2333,75 @@
             <div class="section-header reveal">
                 <div class="section-label">
                     <i class="fa-solid fa-circle-check"></i>
-                    Verification Process
+                    <span data-i18n="verify_label">Verification Process</span>
                 </div>
-                <h2>A Journey, Not Just a Status</h2>
-                <p>Our verification process replaces generic statuses with an engaging, transparent, and personalized journey from application to certification.</p>
+                <h2 data-i18n="verify_title">A Journey, Not Just a Status</h2>
+                <p data-i18n="verify_desc">Our verification process replaces generic statuses with an engaging, transparent, and personalized journey from application to certification.</p>
             </div>
 
             <div class="verify-features">
                 <div class="verify-feature reveal">
                     <div class="verify-feature-icon"><i class="fa-solid fa-comment-dots"></i></div>
-                    <h3>Descriptive &amp; Exciting Language</h3>
-                    <p>Replace generic statuses with descriptive, motivating messages that keep applicants engaged and informed throughout the process.</p>
+                    <h3 data-i18n="verify1_title">Descriptive &amp; Exciting Language</h3>
+                    <p data-i18n="verify1_desc">Replace generic statuses with descriptive, motivating messages that keep applicants engaged and informed throughout the process.</p>
                 </div>
                 <div class="verify-feature reveal">
                     <div class="verify-feature-icon"><i class="fa-solid fa-star"></i></div>
-                    <h3>Gamified Verification Journey</h3>
-                    <p>Points, milestones, and achievement badges that transform the waiting period into an interactive and rewarding experience.</p>
+                    <h3 data-i18n="verify2_title">Gamified Verification Journey</h3>
+                    <p data-i18n="verify2_desc">Points, milestones, and achievement badges that transform the waiting period into an interactive and rewarding experience.</p>
                 </div>
                 <div class="verify-feature reveal">
                     <div class="verify-feature-icon"><i class="fa-solid fa-bell"></i></div>
-                    <h3>Personalized Updates &amp; Tips</h3>
-                    <p>Tailored notifications with relevant resources and best practice recommendations based on your specific business profile.</p>
+                    <h3 data-i18n="verify3_title">Personalized Updates &amp; Tips</h3>
+                    <p data-i18n="verify3_desc">Tailored notifications with relevant resources and best practice recommendations based on your specific business profile.</p>
                 </div>
                 <div class="verify-feature reveal">
                     <div class="verify-feature-icon"><i class="fa-solid fa-images"></i></div>
-                    <h3>Visuals &amp; Multimedia</h3>
-                    <p>Engaging visual elements, animations, and multimedia content that make each stage of verification clear and exciting.</p>
+                    <h3 data-i18n="verify4_title">Visuals &amp; Multimedia</h3>
+                    <p data-i18n="verify4_desc">Engaging visual elements, animations, and multimedia content that make each stage of verification clear and exciting.</p>
                 </div>
                 <div class="verify-feature reveal">
                     <div class="verify-feature-icon"><i class="fa-solid fa-users"></i></div>
-                    <h3>Community Connection</h3>
-                    <p>Connect with other businesses on the same journey, share experiences, and build a supportive network of sustainable tourism champions.</p>
+                    <h3 data-i18n="verify5_title">Community Connection</h3>
+                    <p data-i18n="verify5_desc">Connect with other businesses on the same journey, share experiences, and build a supportive network of sustainable tourism champions.</p>
                 </div>
             </div>
 
             <!-- Example Verification Journey -->
             <div class="journey-title reveal">
-                <h3>Example Verification Journey</h3>
-                <p>Follow a business through each stage of the certification process</p>
+                <h3 data-i18n="journey_title">Example Verification Journey</h3>
+                <p data-i18n="journey_desc">Follow a business through each stage of the certification process</p>
             </div>
             <div class="journey-steps reveal">
                 <div class="journey-step">
                     <div class="journey-step-dot"><i class="fa-solid fa-rocket"></i></div>
-                    <h4>Submitted</h4>
-                    <p>"Your application has landed! We're excited to review your sustainability journey."</p>
+                    <h4 data-i18n="j1_title">Submitted</h4>
+                    <p data-i18n="j1_desc">"Your application has landed! We're excited to review your sustainability journey."</p>
                 </div>
                 <div class="journey-step">
                     <div class="journey-step-dot"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <h4>Document Review</h4>
-                    <p>"Our experts are reviewing your documentation. Explore resources on waste reduction best practices."</p>
+                    <h4 data-i18n="j2_title">Document Review</h4>
+                    <p data-i18n="j2_desc">"Our experts are reviewing your documentation. Explore resources on waste reduction best practices."</p>
                 </div>
                 <div class="journey-step">
                     <div class="journey-step-dot"><i class="fa-solid fa-calendar"></i></div>
-                    <h4>Inspection Scheduled</h4>
-                    <p>"Your on-site inspection is scheduled! Here's what you can expect during the visit."</p>
+                    <h4 data-i18n="j3_title">Inspection Scheduled</h4>
+                    <p data-i18n="j3_desc">"Your on-site inspection is scheduled! Here's what you can expect during the visit."</p>
                 </div>
                 <div class="journey-step">
                     <div class="journey-step-dot"><i class="fa-solid fa-earth-americas"></i></div>
-                    <h4>In Progress</h4>
-                    <p>"Our auditors are impressed with your commitment! We're finalizing our review."</p>
+                    <h4 data-i18n="j4_title">In Progress</h4>
+                    <p data-i18n="j4_desc">"Our auditors are impressed with your commitment! We're finalizing our review."</p>
                 </div>
                 <div class="journey-step">
                     <div class="journey-step-dot"><i class="fa-solid fa-award"></i></div>
-                    <h4>Certified!</h4>
-                    <p>"Congratulations! You're officially a Certified Sustainable Tourism Business!"</p>
+                    <h4 data-i18n="j5_title">Certified!</h4>
+                    <p data-i18n="j5_desc">"Congratulations! You're officially a Certified Sustainable Tourism Business!"</p>
                 </div>
                 <div class="journey-step">
                     <div class="journey-step-dot"><i class="fa-solid fa-bullhorn"></i></div>
-                    <h4>Monthly Promotion</h4>
-                    <p>"Your property will be featured across all Ministry of Tourism social media channels, helping travelers discover your excellence!"</p>
+                    <h4 data-i18n="j6_title">Monthly Promotion</h4>
+                    <p data-i18n="j6_desc">"Your property will be featured across all Ministry of Tourism social media channels, helping travelers discover your excellence!"</p>
                 </div>
             </div>
 
@@ -2366,8 +2410,8 @@
                 <div style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:rgba(215,242,133,0.15);margin-bottom:16px;">
                     <i class="fa-solid fa-trophy" style="font-size:24px;color:var(--mt-secondary);"></i>
                 </div>
-                <h3 style="font-size:20px;margin-bottom:8px;">Certified Properties Get Promoted</h3>
-                <p style="color:var(--mt-steel);max-width:640px;margin:0 auto 20px;">Accommodations that earn their Sustainable Tourism Certificate will be promoted monthly across all official Ministry of Tourism social media accounts. This helps certified properties attract eco-conscious visitors to Saudi Arabia and gives other accommodations the motivation to achieve excellence.</p>
+                <h3 style="font-size:20px;margin-bottom:8px;" data-i18n="promo_title">Certified Properties Get Promoted</h3>
+                <p style="color:var(--mt-steel);max-width:640px;margin:0 auto 20px;" data-i18n="promo_desc">Accommodations that earn their Sustainable Tourism Certificate will be promoted monthly across all official Ministry of Tourism social media accounts. This helps certified properties attract eco-conscious visitors to Saudi Arabia and gives other accommodations the motivation to achieve excellence.</p>
                 <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
                     <div style="display:flex;align-items:center;gap:8px;color:var(--mt-steel);font-size:14px;"><i class="fa-brands fa-x-twitter" style="color:var(--mt-primary-light);font-size:18px;"></i> Twitter/X</div>
                     <div style="display:flex;align-items:center;gap:8px;color:var(--mt-steel);font-size:14px;"><i class="fa-brands fa-instagram" style="color:var(--mt-primary-light);font-size:18px;"></i> Instagram</div>
@@ -2385,20 +2429,20 @@
             <div class="section-header reveal">
                 <div class="section-label" style="color:var(--mt-secondary);">
                     <i class="fa-solid fa-file-pen"></i>
-                    Certification Application
+                    <span data-i18n="form_label">Certification Application</span>
                 </div>
-                <h2 style="color:var(--mt-white);">Apply for Sustainable Tourism Certification</h2>
-                <p style="color:rgba(255,255,255,0.6);">Complete the form below to begin your certification journey. Fields marked with <span style="color:var(--mt-maroon);">*</span> are required.</p>
+                <h2 style="color:var(--mt-white);" data-i18n="form_title">Apply for Sustainable Tourism Certification</h2>
+                <p style="color:rgba(255,255,255,0.6);" data-i18n="form_subtitle_html">Complete the form below to begin your certification journey. Fields marked with <span style="color:var(--mt-maroon);">*</span> are required.</p>
             </div>
 
             <!-- Success Message (hidden by default) -->
             <div class="form-success" id="formSuccess" style="display:none;">
                 <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
-                <h3>Application Submitted Successfully!</h3>
-                <p>Thank you for applying. Your application reference number is: <strong id="appRefNum"></strong></p>
-                <p>Our team will review your application and contact you within 5 business days.</p>
+                <h3 data-i18n="form_success_title">Application Submitted Successfully!</h3>
+                <p><span data-i18n="form_success_msg1">Thank you for applying. Your application reference number is:</span> <strong id="appRefNum"></strong></p>
+                <p data-i18n="form_success_msg2">Our team will review your application and contact you within 5 business days.</p>
                 <button class="btn btn-primary" onclick="resetForm()" style="margin-top:20px;">
-                    <i class="fa-solid fa-plus"></i> Submit Another Application
+                    <i class="fa-solid fa-plus"></i> <span data-i18n="form_success_btn">Submit Another Application</span>
                 </button>
             </div>
 
@@ -2408,34 +2452,34 @@
                 <div class="form-progress">
                     <div class="progress-step active" data-step="1">
                         <div class="step-num">1</div>
-                        <span>License Info</span>
+                        <span data-i18n="step1_label">License Info</span>
                     </div>
                     <div class="progress-line"><div class="progress-fill" id="progressFill"></div></div>
                     <div class="progress-step" data-step="2">
                         <div class="step-num">2</div>
-                        <span>Personal Details</span>
+                        <span data-i18n="step2_label">Personal Details</span>
                     </div>
                     <div class="progress-line"><div class="progress-fill"></div></div>
                     <div class="progress-step" data-step="3">
                         <div class="step-num">3</div>
-                        <span>Business Info</span>
+                        <span data-i18n="step3_label">Business Info</span>
                     </div>
                     <div class="progress-line"><div class="progress-fill"></div></div>
                     <div class="progress-step" data-step="4">
                         <div class="step-num">4</div>
-                        <span>Review &amp; Submit</span>
+                        <span data-i18n="step4_label">Review &amp; Submit</span>
                     </div>
                 </div>
 
                 <!-- Step 1: License Information -->
                 <div class="form-step" id="step1">
                     <div class="form-step-header">
-                        <h3><i class="fa-solid fa-id-card"></i> License Information</h3>
-                        <p>Select your existing tourism license to auto-fill your details</p>
+                        <h3><i class="fa-solid fa-id-card"></i> <span data-i18n="s1_title">License Information</span></h3>
+                        <p data-i18n="s1_desc">Select your existing tourism license to auto-fill your details</p>
                     </div>
                     <div class="form-grid">
                         <div class="form-group full-width">
-                            <label for="licenseNumber">Tourism License Number <span class="req">*</span></label>
+                            <label for="licenseNumber"><span data-i18n="s1_license">Tourism License Number</span> <span class="req">*</span></label>
                             <div class="input-with-icon">
                                 <i class="fa-solid fa-barcode"></i>
                                 <select id="licenseNumber" required>
@@ -2448,7 +2492,7 @@
                                     <option value="TL-2024-006">TL-2024-006 — Neom Eco Lodge</option>
                                     <option value="TL-2024-007">TL-2024-007 — Taif Rose Garden Retreat</option>
                                     <option value="TL-2024-008">TL-2024-008 — Diriyah Cultural Inn</option>
-                                    <option value="manual">Enter manually...</option>
+                                    <option value="manual" data-i18n="s1_manual">Enter manually...</option>
                                 </select>
                             </div>
                         </div>
@@ -3036,7 +3080,9 @@
                 html += '<div class="review-item full"><label>Sustainability Practices</label><span>' + sustainability + '</span></div>';
             }
             const fileCount = uploadedFiles.filter(f => f !== null).length;
-            html += '<div class="review-item"><label>Survey Files Attached</label><span>' + fileCount + ' file' + (fileCount !== 1 ? 's' : '') + '</span></div>';
+            const fileLabel = currentLang === 'ar' ? translations.ar.fl_surveyFiles : 'Survey Files Attached';
+            const fileWord = currentLang === 'ar' ? translations.ar.fl_files : (fileCount !== 1 ? 'files' : 'file');
+            html += '<div class="review-item"><label>' + fileLabel + '</label><span>' + fileCount + ' ' + fileWord + '</span></div>';
             document.getElementById('reviewContent').innerHTML = html;
         }
 
@@ -3154,7 +3200,565 @@
                 URL.revokeObjectURL(url);
             });
         }
+        // ========================================
+        // Arabic / English Language Toggle
+        // ========================================
+        let currentLang = 'en';
+
+        const translations = {
+            ar: {
+                // Nav
+                nav_problem: 'المشكلة',
+                nav_tech: 'التقنية',
+                nav_arch: 'البنية',
+                nav_reg: 'التسجيل',
+                nav_verify: 'التحقق',
+                nav_apply: 'تقدّم الآن',
+                // Hero
+                hero_badge: 'برنامج الشهادة الرسمي',
+                hero_title_html: 'السياحة المستدامة <span class="highlight">برنامج الشهادات</span>',
+                hero_desc: 'وضع معايير واضحة ومكافأة المنشآت السياحية التي تُعطي الأولوية للمسؤولية البيئية والاجتماعية. انضم إلى الحراك لتحويل المشهد السياحي في المملكة.',
+                hero_apply: 'تقدّم للشهادة',
+                hero_learn: 'اعرف المزيد',
+                hero_ai_title: 'تقييم مدعوم بالذكاء الاصطناعي',
+                hero_ai_desc: 'مراقبة آلية وتتبع الامتثال',
+                hero_game_title: 'تجربة تفاعلية',
+                hero_game_desc: 'نقاط وشارات ولوحات متصدرين للتفاعل',
+                // Problem
+                prob_float1: 'لا توجد معايير واضحة',
+                prob_float1_sub: 'فجوة على مستوى القطاع',
+                prob_float2: 'خطر الغسل الأخضر',
+                prob_float2_sub: 'ادعاءات غير موثقة',
+                prob_label: 'بيان المشكلة',
+                prob_title: 'التحدي الذي نعالجه',
+                prob_desc: 'يوجد نقص في المعايير والحوافز الواضحة للمنشآت السياحية لتبني ممارسات مستدامة، مما يؤدي إلى أداء بيئي غير متسق ومخاطر الغسل الأخضر عبر القطاع.',
+                prob_p1: 'عدم وجود معايير استدامة موحدة للمنشآت السياحية',
+                prob_p2: 'نقص الحوافز لتبني أفضل الممارسات البيئية',
+                prob_p3: 'صعوبة التعرف على المنشآت المستدامة حقاً بالنسبة للمسافرين المهتمين بالبيئة',
+                // Technology Pillars
+                tech_label: 'الركائز التقنية',
+                tech_title: 'مدعومة بأحدث التقنيات',
+                tech_desc: 'تستفيد منصة الشهادات من ركائز تقنية رئيسية لتقديم تحقق شفاف وفعال وتفاعلي من الاستدامة.',
+                tech_how: 'كيف تعمل',
+                tech1_title: 'الذكاء الاصطناعي للتقييم الآلي',
+                tech1_desc: 'استخدام الذكاء الاصطناعي لتحليل بيانات استهلاك الطاقة وإدارة النفايات ومشاعر وسائل التواصل الاجتماعي لأتمتة التقييم ومراقبة الامتثال المستمر.',
+                tech1_val: 'يقلل الجهد اليدوي ويزيد الكفاءة ويوفر تقييمات أكثر موضوعية.',
+                tech2_title: 'إنترنت الأشياء للبيانات الفورية',
+                tech2_desc: 'نشر أجهزة استشعار إنترنت الأشياء في المنشآت السياحية لمراقبة استهلاك الطاقة والمياه وتوليد النفايات والعوامل البيئية الأخرى في الوقت الفعلي.',
+                tech2_val: 'يوفر بيانات فورية للتقييم الدقيق، مما يمكّن المنشآت من تحديد مجالات التحسين وتتبع التقدم.',
+                tech3_title: 'التلعيب للتفاعل',
+                tech3_desc: 'دمج النقاط والشارات ولوحات المتصدرين لتحفيز المنشآت على تبني ممارسات مستدامة وتتبع تقدمها خلال رحلة الشهادة.',
+                tech3_val: 'يجعل عملية الشهادة أكثر تفاعلية ويشجع التحسين المستمر.',
+                tech4_title: 'التوصيات المخصصة',
+                tech4_desc: 'استخدام الذكاء الاصطناعي لتحليل المنشآت المعتمدة وتفضيلات المسافرين لتقديم توصيات مخصصة للمسافرين المهتمين بالبيئة.',
+                tech4_val: 'يربط المسافرين بالمنشآت التي تتوافق مع قيمهم، مما يزيد الحجوزات للمنشآت المعتمدة.',
+                // Solution Architecture
+                arch_label: 'البنية التقنية',
+                arch_title: 'مكونات المنصة الشاملة',
+                arch_desc: 'منظومة شاملة من الوحدات المترابطة المصممة لتبسيط عمليات الشهادة والتحقق والترويج.',
+                arch1_title: 'البوابة الإلكترونية',
+                arch1_desc: 'بوابة سهلة الاستخدام للمنشآت للتقدم للشهادة وتقديم البيانات وتتبع التقدم والوصول إلى الموارد.',
+                arch2_title: 'إدارة البيانات',
+                arch2_desc: 'نظام آمن لجمع وتخزين وتحليل البيانات المتعلقة بمعايير الاستدامة والتفتيش والشهادات.',
+                arch3_title: 'التحقق والتدقيق',
+                arch3_desc: 'نظام للمدققين المستقلين للتحقق من البيانات وإجراء عمليات التفتيش الميداني لضمان نزاهة الشهادة.',
+                arch4_title: 'منصة التسويق',
+                arch4_desc: 'عرض المنشآت المعتمدة والترويج لجهود الاستدامة والتواصل مع المسافرين المهتمين بالبيئة.',
+                arch5_title: 'التكامل مع الأنظمة',
+                arch5_desc: 'التكامل مع منصات الحجز ووكالات السفر والأنظمة الأخرى لزيادة الظهور والوصول.',
+                // Expected Value
+                val_label: 'تحقيق القيمة المتوقعة',
+                val_title: 'تحقيق أثر مستدام',
+                val_desc: 'يخلق برنامجنا قيمة عبر منظومة السياحة بأكملها — من وضع معايير القطاع إلى دعم النمو الاقتصادي المستدام.',
+                val1_title: 'رفع معايير القطاع',
+                val1_desc: 'من خلال وضع معايير استدامة واضحة ومكافأة المنشآت التي تستوفيها، يحفز البرنامج تبني أفضل الممارسات عبر قطاع السياحة.',
+                val2_title: 'جذب المسافرين المهتمين بالبيئة',
+                val2_desc: 'يساعد البرنامج المسافرين المهتمين بالبيئة على التعرف بسهولة على المنشآت المستدامة ودعمها، مما يزيد الطلب على المنشآت المعتمدة.',
+                val3_title: 'تعزيز صورة الوجهة',
+                val3_desc: 'الترويج للمنشآت المعتمدة وإبراز التزام المملكة بالسياحة المستدامة يعزز صورة الوجهة ويجذب المزيد من المسافرين المسؤولين.',
+                val4_title: 'دعم النمو الاقتصادي',
+                val4_desc: 'من خلال دعم المنشآت المستدامة، يساهم البرنامج في النمو الاقتصادي طويل الأمد والحفاظ على الموارد الطبيعية والثقافية.',
+                // Sustainability Model
+                model_label: 'نموذج الاستدامة',
+                model_title: 'منظومة مستدامة ذاتياً',
+                model_desc: 'يضمن نموذجنا المالي الاستمرارية طويلة الأمد من خلال مصادر إيرادات متنوعة وشراكات استراتيجية.',
+                model1_title: 'رسوم الشهادة',
+                model1_desc: 'هيكل تسعير متدرج للمنشآت في مراحل مختلفة من رحلة الاستدامة، لضمان إمكانية الوصول مع الحفاظ على جودة البرنامج.',
+                model2_title: 'الرعايات',
+                model2_desc: 'شراكات مع منظمات صديقة للبيئة تشاركنا رؤيتنا لتطوير السياحة المستدامة والسفر المسؤول.',
+                model3_title: 'شراكات المنصة',
+                model3_desc: 'تكاملات استراتيجية مع منصات التسويق وأنظمة الحجز ووكالات السفر لتوسيع النطاق وتوليد قيمة متبادلة.',
+                // Registration Flow
+                reg_label: 'مسار التسجيل',
+                reg_title: 'تسجيل مبتكر وسهل',
+                reg_desc: 'تجربة تسجيل مصممة بعناية تجعل التقدم للشهادة بسيطاً وتفاعلياً ومتاحاً على أي جهاز.',
+                reg1_title: 'إعداد تفاعلي',
+                reg1_desc: 'تجربة ترحيبية تفاعلية مع تتبع التقدم ومراحل الإنجاز وأدلة تعليمية تفاعلية ترشدك خطوة بخطوة عبر متطلبات الشهادة.',
+                reg1_tag: 'التفاعل',
+                reg2_title: 'نماذج ذكية بالذكاء الاصطناعي',
+                reg2_desc: 'نماذج ذكية تتكيف مع إجاباتك وتملأ الحقول تلقائياً وتقدم إرشادات فورية لضمان تقديم طلبات دقيقة وكاملة.',
+                reg2_tag: 'مدعوم بالذكاء الاصطناعي',
+                reg3_title: 'مسارات تسجيل مخصصة',
+                reg3_desc: 'مسارات تسجيل مخصصة حسب نوع نشاطك وحجمه وممارسات الاستدامة الحالية، لضمان تجربة ملائمة وفعالة.',
+                reg3_tag: 'مخصص',
+                reg4_title: 'أدلة تفاعلية ووسائل مرئية',
+                reg4_desc: 'محتوى مرئي غني وتلميحات ومقاطع فيديو مدمجة وجولات تفاعلية تجعل معايير الاستدامة المعقدة سهلة الفهم.',
+                reg4_tag: 'مرئي',
+                reg5_title: 'نهج الجوال أولاً',
+                reg5_desc: 'تصميم متجاوب بالكامل محسّن للأجهزة المحمولة مع إمكانية الوصول دون اتصال، مما يتيح لك بدء التسجيل من أي مكان.',
+                reg5_tag: 'الجوال أولاً',
+                reg6_title: 'التكامل مع الأنظمة القائمة',
+                reg6_desc: 'اتصال سلس بأدوات إدارة الأعمال ومصادر البيانات وأنظمة التقارير الحالية لتبسيط عملية التقديم.',
+                reg6_tag: 'تكامل',
+                reg7_title: 'تصميم محوره الإنسان',
+                reg7_desc: 'كل عنصر مصمم مع مراعاة إمكانية الوصول والوضوح وملاحظات المستخدمين — بما في ذلك الدعم متعدد اللغات والمساعدة المباشرة عند الحاجة.',
+                reg7_tag: 'المستخدم أولاً',
+                // Verification Process
+                verify_label: 'عملية التحقق',
+                verify_title: 'رحلة، وليس مجرد حالة',
+                verify_desc: 'تستبدل عملية التحقق لدينا الحالات العامة برحلة تفاعلية وشفافة ومخصصة من التقديم إلى الشهادة.',
+                verify1_title: 'لغة وصفية ومحفزة',
+                verify1_desc: 'استبدال الحالات العامة برسائل وصفية ومحفزة تبقي المتقدمين متفاعلين ومطلعين طوال العملية.',
+                verify2_title: 'رحلة تحقق تفاعلية',
+                verify2_desc: 'نقاط ومراحل وشارات إنجاز تحوّل فترة الانتظار إلى تجربة تفاعلية ومجزية.',
+                verify3_title: 'تحديثات ونصائح مخصصة',
+                verify3_desc: 'إشعارات مخصصة مع موارد ذات صلة وتوصيات بأفضل الممارسات بناءً على ملف نشاطك.',
+                verify4_title: 'وسائط مرئية ومتعددة',
+                verify4_desc: 'عناصر مرئية جذابة ورسوم متحركة ومحتوى متعدد الوسائط يجعل كل مرحلة من التحقق واضحة ومشوقة.',
+                verify5_title: 'التواصل المجتمعي',
+                verify5_desc: 'تواصل مع منشآت أخرى في نفس الرحلة وشارك التجارب وابنِ شبكة داعمة من رواد السياحة المستدامة.',
+                // Example Journey
+                journey_title: 'مثال على رحلة التحقق',
+                journey_desc: 'تابع منشأة خلال كل مرحلة من عملية الشهادة',
+                j1_title: 'تم التقديم',
+                j1_desc: '"وصل طلبك! نحن متحمسون لمراجعة رحلة الاستدامة الخاصة بك."',
+                j2_title: 'مراجعة المستندات',
+                j2_desc: '"خبراؤنا يراجعون وثائقك. استكشف موارد حول أفضل ممارسات تقليل النفايات."',
+                j3_title: 'تحديد موعد التفتيش',
+                j3_desc: '"تم تحديد موعد التفتيش الميداني! إليك ما يمكنك توقعه خلال الزيارة."',
+                j4_title: 'قيد التنفيذ',
+                j4_desc: '"مدققونا معجبون بالتزامك! نحن بصدد إنهاء المراجعة."',
+                j5_title: 'معتمد!',
+                j5_desc: '"تهانينا! أنت الآن منشأة سياحية مستدامة معتمدة رسمياً!"',
+                j6_title: 'ترويج شهري',
+                j6_desc: '"سيتم عرض منشأتك عبر جميع قنوات التواصل الاجتماعي لوزارة السياحة، لمساعدة المسافرين على اكتشاف تميزك!"',
+                // Promotion Card
+                promo_title: 'المنشآت المعتمدة تحصل على ترويج',
+                promo_desc: 'المنشآت الإيوائية التي تحصل على شهادة السياحة المستدامة سيتم ترويجها شهرياً عبر جميع حسابات وزارة السياحة الرسمية على وسائل التواصل الاجتماعي. يساعد هذا المنشآت المعتمدة على جذب الزوار المهتمين بالبيئة إلى المملكة العربية السعودية ويحفز المنشآت الأخرى على تحقيق التميز.',
+                // Application Form
+                form_label: 'طلب الشهادة',
+                form_title: 'تقدّم لشهادة السياحة المستدامة',
+                form_subtitle: 'أكمل النموذج أدناه لبدء رحلة الشهادة. الحقول المميزة بـ <span style="color:var(--mt-maroon);">*</span> مطلوبة.',
+                form_success_title: 'تم تقديم الطلب بنجاح!',
+                form_success_msg1: 'شكراً لتقدمك. رقم مرجع طلبك هو:',
+                form_success_msg2: 'سيقوم فريقنا بمراجعة طلبك والتواصل معك خلال 5 أيام عمل.',
+                form_success_btn: 'تقديم طلب آخر',
+                // Progress steps
+                step1_label: 'معلومات الرخصة',
+                step2_label: 'البيانات الشخصية',
+                step3_label: 'معلومات المنشأة',
+                step4_label: 'المراجعة والتقديم',
+                // Step 1
+                s1_title: 'معلومات الرخصة',
+                s1_desc: 'اختر رخصتك السياحية الحالية لتعبئة بياناتك تلقائياً',
+                s1_license: 'رقم الرخصة السياحية',
+                s1_license_ph: '-- اختر رخصتك --',
+                s1_manual: 'أدخل يدوياً...',
+                s1_manual_label: 'أدخل رقم الرخصة يدوياً',
+                s1_category: 'فئة الرخصة',
+                s1_cat_ph: '-- اختر الفئة --',
+                s1_cat_accom: 'إيواء',
+                s1_cat_tour: 'منظم رحلات',
+                s1_cat_travel: 'وكالة سفر',
+                s1_cat_rest: 'مطاعم وتناول الطعام',
+                s1_cat_adv: 'مغامرات وأنشطة خارجية',
+                s1_cat_cult: 'ثقافة وتراث',
+                s1_cat_trans: 'النقل السياحي',
+                s1_cat_event: 'فعاليات وترفيه',
+                s1_class: 'تصنيف المنشأة',
+                s1_class_ph: '-- اختر التصنيف --',
+                s1_class_5: '5 نجوم',
+                s1_class_4: '4 نجوم',
+                s1_class_3: '3 نجوم',
+                s1_class_2: 'نجمتان',
+                s1_class_1: 'نجمة واحدة',
+                s1_class_bout: 'بوتيك',
+                s1_class_heritage: 'نُزل تراثي',
+                s1_class_eco: 'نُزل بيئي',
+                s1_class_apt: 'شقق مخدومة',
+                s1_class_resort: 'منتجع',
+                s1_class_other: 'أخرى',
+                s1_next: 'التالي: البيانات الشخصية',
+                // Step 2
+                s2_title: 'البيانات الشخصية',
+                s2_desc: 'أدخل بيانات التواصل للمتقدم الرئيسي',
+                s2_fname: 'الاسم الأول',
+                s2_fname_ph: 'أدخل الاسم الأول',
+                s2_lname: 'اسم العائلة',
+                s2_lname_ph: 'أدخل اسم العائلة',
+                s2_email: 'البريد الإلكتروني',
+                s2_phone: 'رقم الهاتف',
+                s2_natid: 'رقم الهوية الوطنية / الإقامة',
+                s2_natid_ph: 'رقم الهوية المكون من 10 أرقام',
+                s2_job: 'المسمى الوظيفي',
+                s2_job_ph: 'مثال: المدير العام',
+                s2_back: 'رجوع',
+                s2_next: 'التالي: معلومات المنشأة',
+                // Step 3
+                s3_title: 'معلومات المنشأة',
+                s3_desc: 'أخبرنا المزيد عن منشأتك السياحية',
+                s3_bname: 'اسم المنشأة',
+                s3_bname_ph: 'الاسم الرسمي للمنشأة',
+                s3_cr: 'رقم السجل التجاري',
+                s3_cr_ph: 'رقم السجل التجاري',
+                s3_city: 'المدينة',
+                s3_city_ph: '-- اختر المدينة --',
+                s3_emp: 'عدد الموظفين',
+                s3_emp_ph: '-- اختر النطاق --',
+                s3_web: 'رابط الموقع الإلكتروني',
+                s3_sust: 'ممارسات الاستدامة الحالية',
+                s3_sust_ph: 'صف أي مبادرات استدامة تنفذها منشأتك حالياً (مثل: إدارة النفايات، كفاءة الطاقة، الحفاظ على المياه، المشاركة المجتمعية)...',
+                s3_survey: 'استبيانات ومراجعات الضيوف',
+                s3_survey_desc: 'ارفع استبيانات الضيوف ومراجعات العملاء وتقارير رضا النزلاء. سيتم مراجعتها من قبل الوزارة كجزء من تقييم الشهادة.',
+                s3_upload: 'انقر لرفع ملفات الاستبيان',
+                s3_upload_types: 'PDF، Word، Excel، CSV، أو صور (بحد أقصى 10 ميجا لكل ملف)',
+                s3_back: 'رجوع',
+                s3_next: 'التالي: المراجعة',
+                // Step 4
+                s4_title: 'المراجعة والتقديم',
+                s4_desc: 'يرجى مراجعة تفاصيل طلبك قبل التقديم',
+                s4_agree: 'أؤكد أن المعلومات المقدمة صحيحة وأوافق على <a href="#" style="color:var(--mt-teal-light);text-decoration:underline;">الشروط والأحكام</a> الخاصة ببرنامج شهادة السياحة المستدامة.',
+                s4_back: 'رجوع',
+                s4_submit: 'تقديم الطلب',
+                // Admin
+                admin_toggle: 'المسؤول: عرض الطلبات',
+                admin_title: 'قاعدة بيانات الطلبات المقدمة',
+                admin_export: 'تصدير CSV',
+                admin_ref: 'المرجع #',
+                admin_date: 'التاريخ',
+                admin_name: 'الاسم',
+                admin_business: 'المنشأة',
+                admin_license: 'الرخصة',
+                admin_class: 'التصنيف',
+                admin_city: 'المدينة',
+                admin_email: 'البريد',
+                admin_surveys: 'الاستبيانات',
+                admin_nodata: 'لم يتم تقديم أي طلبات بعد.',
+                // Floating CTA
+                float_cta: 'تقدّم للشهادة',
+                // Footer
+                footer_brand: 'شهادة السياحة المستدامة',
+                footer_brand_desc: 'مبادرة من وزارة السياحة لوضع معايير استدامة واضحة ومكافأة المنشآت المسؤولة وبناء مستقبل أكثر اخضراراً للسياحة في المملكة.',
+                footer_program: 'البرنامج',
+                footer_problem: 'بيان المشكلة',
+                footer_tech: 'الركائز التقنية',
+                footer_arch: 'البنية التقنية',
+                footer_value: 'القيمة المتوقعة',
+                footer_process: 'العملية',
+                footer_reg: 'التسجيل',
+                footer_verify: 'التحقق',
+                footer_model: 'نموذج الاستدامة',
+                footer_applynow: 'تقدّم الآن',
+                footer_resources: 'الموارد',
+                footer_docs: 'الوثائق',
+                footer_faqs: 'الأسئلة الشائعة',
+                footer_support: 'الدعم الفني',
+                footer_partner: 'بوابة الشركاء',
+                footer_copy: '© 2026 وزارة السياحة. جميع الحقوق محفوظة.',
+                footer_name: 'برنامج شهادة السياحة المستدامة',
+                // Field labels for review
+                fl_licenseNumber: 'رقم الرخصة',
+                fl_licenseCategory: 'فئة الرخصة',
+                fl_starRating: 'تصنيف المنشأة',
+                fl_firstName: 'الاسم الأول',
+                fl_lastName: 'اسم العائلة',
+                fl_email: 'البريد الإلكتروني',
+                fl_phone: 'الهاتف',
+                fl_nationalId: 'رقم الهوية / الإقامة',
+                fl_jobTitle: 'المسمى الوظيفي',
+                fl_businessName: 'اسم المنشأة',
+                fl_crNumber: 'رقم السجل التجاري',
+                fl_city: 'المدينة',
+                fl_employees: 'عدد الموظفين',
+                fl_website: 'الموقع الإلكتروني',
+                fl_sustainability: 'ممارسات الاستدامة',
+                fl_surveyFiles: 'ملفات الاستبيان المرفقة',
+                fl_file: 'ملف',
+                fl_files: 'ملفات',
+                // HTML keys
+                form_subtitle_html: 'أكمل النموذج أدناه لبدء رحلة الشهادة. الحقول المميزة بـ <span style="color:var(--mt-maroon);">*</span> مطلوبة.',
+                // Footer resources (no href selector available)
+                res_docs: 'الوثائق',
+                res_faqs: 'الأسئلة الشائعة',
+                res_support: 'الدعم الفني',
+                res_partner: 'بوابة الشركاء'
+            }
+        };
+
+        // Store original English content
+        const originalContent = {};
+
+        function storeOriginals() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (key.endsWith('_html')) {
+                    originalContent[key] = el.innerHTML;
+                } else {
+                    originalContent[key] = el.textContent;
+                }
+            });
+        }
+
+        function applyTranslations(lang) {
+            if (lang === 'en') {
+                // Restore originals
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (originalContent[key] !== undefined) {
+                        if (key.endsWith('_html')) {
+                            el.innerHTML = originalContent[key];
+                        } else {
+                            el.textContent = originalContent[key];
+                        }
+                    }
+                });
+                return;
+            }
+            const t = translations[lang];
+            if (!t) return;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key] !== undefined) {
+                    if (key.endsWith('_html')) {
+                        el.innerHTML = t[key];
+                    } else {
+                        el.textContent = t[key];
+                    }
+                }
+            });
+        }
+
+        // DOM-based translations for elements without data-i18n
+        const domTranslations = {
+            ar: [
+                // Step 1 form
+                {s: 'label[for="manualLicense"]', html: 'أدخل رقم الرخصة يدوياً <span class="req">*</span>'},
+                {s: '#manualLicense', attr: 'placeholder', v: 'مثال: TL-2024-XXX'},
+                {s: 'label[for="licenseCategory"]', html: '<span data-i18n="s1_category">فئة الرخصة</span> <span class="req">*</span>'},
+                {s: '#licenseCategory option[value=""]', t: '-- اختر الفئة --'},
+                {s: '#licenseCategory option[value="accommodation"]', t: 'إيواء'},
+                {s: '#licenseCategory option[value="tour-operator"]', t: 'منظم رحلات'},
+                {s: '#licenseCategory option[value="travel-agency"]', t: 'وكالة سفر'},
+                {s: '#licenseCategory option[value="restaurant"]', t: 'مطاعم وتناول الطعام'},
+                {s: '#licenseCategory option[value="adventure"]', t: 'مغامرات وأنشطة خارجية'},
+                {s: '#licenseCategory option[value="cultural"]', t: 'ثقافة وتراث'},
+                {s: '#licenseCategory option[value="transport"]', t: 'النقل السياحي'},
+                {s: '#licenseCategory option[value="event"]', t: 'فعاليات وترفيه'},
+                {s: 'label[for="starRating"]', html: '<span>تصنيف المنشأة</span> <span class="req">*</span>'},
+                {s: '#starRating option[value=""]', t: '-- اختر التصنيف --'},
+                {s: '#starRating option[value="5-star"]', t: '5 نجوم'},
+                {s: '#starRating option[value="4-star"]', t: '4 نجوم'},
+                {s: '#starRating option[value="3-star"]', t: '3 نجوم'},
+                {s: '#starRating option[value="2-star"]', t: 'نجمتان'},
+                {s: '#starRating option[value="1-star"]', t: 'نجمة واحدة'},
+                {s: '#starRating option[value="boutique"]', t: 'بوتيك'},
+                {s: '#starRating option[value="heritage"]', t: 'نُزل تراثي'},
+                {s: '#starRating option[value="eco-lodge"]', t: 'نُزل بيئي'},
+                {s: '#starRating option[value="serviced-apt"]', t: 'شقق مخدومة'},
+                {s: '#starRating option[value="resort"]', t: 'منتجع'},
+                {s: '#starRating option[value="other"]', t: 'أخرى'},
+                {s: '#step1 .btn-primary', html: '<span>التالي: البيانات الشخصية</span> <i class="fa-solid fa-arrow-left"></i>'},
+                // Step 2
+                {s: '#step2 .form-step-header h3', html: '<i class="fa-solid fa-user"></i> البيانات الشخصية'},
+                {s: '#step2 .form-step-header p', t: 'أدخل بيانات التواصل للمتقدم الرئيسي'},
+                {s: 'label[for="firstName"]', html: 'الاسم الأول <span class="req">*</span>'},
+                {s: '#firstName', attr: 'placeholder', v: 'أدخل الاسم الأول'},
+                {s: 'label[for="lastName"]', html: 'اسم العائلة <span class="req">*</span>'},
+                {s: '#lastName', attr: 'placeholder', v: 'أدخل اسم العائلة'},
+                {s: 'label[for="email"]', html: 'البريد الإلكتروني <span class="req">*</span>'},
+                {s: '#email', attr: 'placeholder', v: 'name@company.com'},
+                {s: 'label[for="phone"]', html: 'رقم الهاتف <span class="req">*</span>'},
+                {s: '#phone', attr: 'placeholder', v: '+966 5X XXX XXXX'},
+                {s: 'label[for="nationalId"]', html: 'رقم الهوية الوطنية / الإقامة <span class="req">*</span>'},
+                {s: '#nationalId', attr: 'placeholder', v: 'رقم الهوية المكون من 10 أرقام'},
+                {s: 'label[for="jobTitle"]', html: 'المسمى الوظيفي <span class="req">*</span>'},
+                {s: '#jobTitle', attr: 'placeholder', v: 'مثال: المدير العام'},
+                {s: '#step2 .btn-outline', html: '<i class="fa-solid fa-arrow-right"></i> رجوع'},
+                {s: '#step2 .btn-primary', html: '<span>التالي: معلومات المنشأة</span> <i class="fa-solid fa-arrow-left"></i>'},
+                // Step 3
+                {s: '#step3 .form-step-header h3', html: '<i class="fa-solid fa-building"></i> معلومات المنشأة'},
+                {s: '#step3 .form-step-header p', t: 'أخبرنا المزيد عن منشأتك السياحية'},
+                {s: 'label[for="businessName"]', html: 'اسم المنشأة <span class="req">*</span>'},
+                {s: '#businessName', attr: 'placeholder', v: 'الاسم الرسمي للمنشأة'},
+                {s: 'label[for="crNumber"]', t: 'رقم السجل التجاري'},
+                {s: '#crNumber', attr: 'placeholder', v: 'رقم السجل التجاري'},
+                {s: 'label[for="city"]', html: 'المدينة <span class="req">*</span>'},
+                {s: '#city option[value=""]', t: '-- اختر المدينة --'},
+                {s: 'label[for="employees"]', html: 'عدد الموظفين <span class="req">*</span>'},
+                {s: '#employees option[value=""]', t: '-- اختر النطاق --'},
+                {s: 'label[for="website"]', t: 'رابط الموقع الإلكتروني'},
+                {s: 'label[for="sustainability"]', t: 'ممارسات الاستدامة الحالية'},
+                {s: '#sustainability', attr: 'placeholder', v: 'صف أي مبادرات استدامة تنفذها منشأتك حالياً (مثل: إدارة النفايات، كفاءة الطاقة، الحفاظ على المياه، المشاركة المجتمعية)...'},
+                {s: '#step3 .btn-outline', html: '<i class="fa-solid fa-arrow-right"></i> رجوع'},
+                {s: '#step3 .btn-primary', html: '<span>التالي: المراجعة</span> <i class="fa-solid fa-arrow-left"></i>'},
+                // Survey upload
+                {s: 'label[for="surveyUpload"]', html: '<i class="fa-solid fa-file-arrow-up" style="margin-right:6px;color:var(--mt-teal-light);"></i>استبيانات ومراجعات الضيوف <span class="req">*</span>'},
+                {s: '.file-upload-placeholder p:first-child', t: 'انقر لرفع ملفات الاستبيان'},
+                {s: '.file-upload-placeholder p:last-child', t: 'PDF، Word، Excel، CSV، أو صور (بحد أقصى 10 ميجا لكل ملف)'},
+                // Step 4
+                {s: '#step4 .form-step-header h3', html: '<i class="fa-solid fa-clipboard-list"></i> المراجعة والتقديم'},
+                {s: '#step4 .form-step-header p', t: 'يرجى مراجعة تفاصيل طلبك قبل التقديم'},
+                {s: '#step4 .btn-outline', html: '<i class="fa-solid fa-arrow-right"></i> رجوع'},
+                {s: '.btn-submit', html: '<i class="fa-solid fa-paper-plane"></i> تقديم الطلب'},
+                // Admin
+                {s: '.admin-toggle .btn', html: '<i class="fa-solid fa-lock"></i> المسؤول: عرض الطلبات'},
+                {s: '.admin-header h3', html: '<i class="fa-solid fa-database"></i> قاعدة بيانات الطلبات المقدمة'},
+                {s: '.admin-actions-bar .btn', html: '<i class="fa-solid fa-download"></i> تصدير CSV'},
+                {s: '#noData', t: 'لم يتم تقديم أي طلبات بعد.'},
+                {s: '.admin-table th:nth-child(1)', t: 'المرجع #'},
+                {s: '.admin-table th:nth-child(2)', t: 'التاريخ'},
+                {s: '.admin-table th:nth-child(3)', t: 'الاسم'},
+                {s: '.admin-table th:nth-child(4)', t: 'المنشأة'},
+                {s: '.admin-table th:nth-child(5)', t: 'الرخصة'},
+                {s: '.admin-table th:nth-child(6)', t: 'التصنيف'},
+                {s: '.admin-table th:nth-child(7)', t: 'المدينة'},
+                {s: '.admin-table th:nth-child(8)', t: 'البريد'},
+                {s: '.admin-table th:nth-child(9)', t: 'الاستبيانات'},
+                // Floating CTA
+                {s: '.floating-cta', keepChildren: true, textNode: 'تقدّم للشهادة'},
+                // Footer
+                {s: '.footer-brand h3', t: 'شهادة السياحة المستدامة'},
+                {s: '.footer-brand p', t: 'مبادرة من وزارة السياحة لوضع معايير استدامة واضحة ومكافأة المنشآت المسؤولة وبناء مستقبل أكثر اخضراراً للسياحة في المملكة.'},
+                {s: '.footer-col:nth-child(2) h4', t: 'البرنامج'},
+                {s: '.footer-col:nth-child(2) a[href="#problem"]', t: 'بيان المشكلة'},
+                {s: '.footer-col:nth-child(2) a[href="#technology"]', t: 'الركائز التقنية'},
+                {s: '.footer-col:nth-child(2) a[href="#architecture"]', t: 'البنية التقنية'},
+                {s: '.footer-col:nth-child(2) a[href="#value"]', t: 'القيمة المتوقعة'},
+                {s: '.footer-col:nth-child(3) h4', t: 'العملية'},
+                {s: '.footer-col:nth-child(3) a[href="#registration"]', t: 'التسجيل'},
+                {s: '.footer-col:nth-child(3) a[href="#verification"]', t: 'التحقق'},
+                {s: '.footer-col:nth-child(3) a[href="#model"]', t: 'نموذج الاستدامة'},
+                {s: '.footer-col:nth-child(3) a[href="#apply"]', t: 'تقدّم الآن'},
+                {s: '.footer-col:nth-child(4) h4', t: 'الموارد'},
+                {s: '.footer-bottom span:first-child', t: '© 2026 وزارة السياحة. جميع الحقوق محفوظة.'},
+                {s: '.footer-bottom span:last-child', t: 'برنامج شهادة السياحة المستدامة'},
+                // Checkbox
+                {s: '.checkbox-label span:last-child', html: 'أؤكد أن المعلومات المقدمة صحيحة وأوافق على <a href="#" style="color:var(--mt-teal-light);text-decoration:underline;">الشروط والأحكام</a> الخاصة ببرنامج شهادة السياحة المستدامة. <span class="req">*</span>'},
+                // Survey upload description
+                {s: '#step3 .form-group.full-width > p[style]', t: 'ارفع استبيانات الضيوف ومراجعات العملاء وتقارير رضا النزلاء. سيتم مراجعتها من قبل الوزارة كجزء من تقييم الشهادة.'},
+                // License select placeholder
+                {s: '#licenseNumber option[value=""]', t: '-- اختر رخصتك --'},
+                // Footer resources links
+                {s: '.footer-col:nth-child(4) a:nth-child(2)', t: 'الوثائق'},
+                {s: '.footer-col:nth-child(4) a:nth-child(3)', t: 'الأسئلة الشائعة'},
+                {s: '.footer-col:nth-child(4) a:nth-child(4)', t: 'الدعم الفني'},
+                {s: '.footer-col:nth-child(4) a:nth-child(5)', t: 'بوابة الشركاء'},
+            ]
+        };
+
+        // Store originals for DOM-based translations
+        const domOriginals = [];
+        function storeDomOriginals() {
+            domTranslations.ar.forEach((rule, i) => {
+                const el = document.querySelector(rule.s);
+                if (!el) { domOriginals[i] = null; return; }
+                if (rule.attr) {
+                    domOriginals[i] = el.getAttribute(rule.attr);
+                } else if (rule.html) {
+                    domOriginals[i] = el.innerHTML;
+                } else if (rule.keepChildren) {
+                    // Get only last text node
+                    const nodes = el.childNodes;
+                    for (let n = nodes.length - 1; n >= 0; n--) {
+                        if (nodes[n].nodeType === 3 && nodes[n].textContent.trim()) {
+                            domOriginals[i] = nodes[n].textContent;
+                            break;
+                        }
+                    }
+                } else {
+                    domOriginals[i] = el.textContent;
+                }
+            });
+        }
+
+        function applyDomTranslations(lang) {
+            const rules = domTranslations.ar;
+            rules.forEach((rule, i) => {
+                const el = document.querySelector(rule.s);
+                if (!el) return;
+                if (lang === 'ar') {
+                    if (rule.attr) {
+                        el.setAttribute(rule.attr, rule.v);
+                    } else if (rule.html) {
+                        el.innerHTML = rule.html;
+                    } else if (rule.keepChildren) {
+                        const nodes = el.childNodes;
+                        for (let n = nodes.length - 1; n >= 0; n--) {
+                            if (nodes[n].nodeType === 3 && nodes[n].textContent.trim()) {
+                                nodes[n].textContent = '\n        ' + rule.textNode + '\n    ';
+                                break;
+                            }
+                        }
+                    } else {
+                        el.textContent = rule.t;
+                    }
+                } else {
+                    // Restore
+                    if (domOriginals[i] === null) return;
+                    if (rule.attr) {
+                        el.setAttribute(rule.attr, domOriginals[i]);
+                    } else if (rule.html) {
+                        el.innerHTML = domOriginals[i];
+                    } else if (rule.keepChildren) {
+                        const nodes = el.childNodes;
+                        for (let n = nodes.length - 1; n >= 0; n--) {
+                            if (nodes[n].nodeType === 3 && nodes[n].textContent.trim()) {
+                                nodes[n].textContent = domOriginals[i];
+                                break;
+                            }
+                        }
+                    } else {
+                        el.textContent = domOriginals[i];
+                    }
+                }
+            });
+        }
+
+        function toggleLanguage() {
+            const btn = document.getElementById('langToggle');
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+                btn.textContent = 'EN';
+                btn.setAttribute('aria-label', 'Switch to English');
+                applyTranslations('ar');
+                applyDomTranslations('ar');
+            } else {
+                currentLang = 'en';
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', 'en');
+                btn.textContent = 'AR';
+                btn.setAttribute('aria-label', 'Switch to Arabic');
+                applyTranslations('en');
+                applyDomTranslations('en');
+            }
+        }
+
+        // Update getFieldLabel for Arabic
+        const originalGetFieldLabel = getFieldLabel;
+        getFieldLabel = function(id) {
+            if (currentLang === 'ar') {
+                const arLabels = translations.ar;
+                const key = 'fl_' + id;
+                if (arLabels[key]) return arLabels[key];
+            }
+            return originalGetFieldLabel(id);
+        };
+
+        // Store originals on page load
+        storeOriginals();
+        storeDomOriginals();
     </script>
 </body>
 </html>
-<!-- deployed 20260412144122 -->
